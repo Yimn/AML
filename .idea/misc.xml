@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/AML/pom.xml" />
         <option value="$PROJECT_DIR$/ETL/pom.xml" />
+        <option value="$PROJECT_DIR$/CodeGenerator/pom.xml" />
       </list>
     </option>
   </component>

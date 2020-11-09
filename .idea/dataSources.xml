@@ -8,14 +8,5 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@yimnlul.ddns.net:1521:orcl</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="AML/Hibernate" uuid="d967d1d0-c115-443f-8db6-6c4928ef56d0">
-      <driver-ref>oracle</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate</remarks>
-      <auto-commit>false</auto-commit>
-      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
-      <jdbc-url>jdbc:oracle:thin:@yimnlul.ddns.net:1521:orcl</jdbc-url>
-    </data-source>
   </component>
 </project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimnlu.AML.dao.AML_Dict">
+
+    <!-- 开启二级缓存 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yimnlu.AML.entity.AML_Dict">
+        <result column="BANK" property="BANK"/>
+        <result column="APPLICATION" property="APPLICATION"/>
+        <result column="GROUP_CODE" property="GROUP_CODE"/>
+        <result column="GROUP_NAME" property="GROUP_NAME"/>
+        <result column="META_VAL" property="META_VAL"/>
+        <result column="META_NAME" property="META_NAME"/>
+        <result column="CREATOR" property="CREATOR"/>
+        <result column="CREATE_TIME" property="CREATE_TIME"/>
+        <result column="MOD_USER" property="MOD_USER"/>
+        <result column="MOD_DATE" property="MOD_DATE"/>
+        <result column="ENABLE" property="ENABLE"/>
+        <result column="REMARK" property="REMARK"/>
+        <result column="MOD_ABLE" property="MOD_ABLE"/>
+    </resultMap>
+
+    <resultMap id="get_META" type="com.yimnlu.AML.dto.AML_DICT_META">
+        <result column="META_VAL" property="META_VAL"/>
+        <result column="META_NAME" property="META_NAME"/>
+    </resultMap>
+
+    <resultMap id="get_GROUP" type="com.yimnlu.AML.dto.AML_DICT_GROUP">
+        <result column="GROUP_CODE" property="GROUP_CODE"/>
+        <result column="GROUP_NAME" property="GROUP_NAME"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        BANK, APPLICATION,GROUP_CODE,GROUP_NAME,META_VAL,META_NAME,CREATOR,CREATE_TIME,MOD_USER,MOD_DATE,ENABLE,REMARK,MOD_ABLE
+    </sql>
+
+    <select id="getEnabled" resultMap="BaseResultMap">
+        SELECT * FROM AML_DICT WHERE ENABLE = 1
+    </select>
+
+
+    <select id="getGROUP" resultMap="get_GROUP">
+        select DISTINCT GROUP_CODE,GROUP_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_COD
+    </select>
+
+    <select id="getMETA" resultMap="get_META">
+        select DISTINCT GROUP_CODE,GROUP_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+    </select>
+
+
+</mapper>
