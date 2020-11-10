@@ -30,6 +30,8 @@
     <resultMap id="get_GROUP" type="com.yimnlu.AML.dto.AML_DICT_GROUP">
         <result column="GROUP_CODE" property="GROUP_CODE"/>
         <result column="GROUP_NAME" property="GROUP_NAME"/>
+        <result column="META_VAL" property="META_VAL"/>
+        <result column="META_NAME" property="META_NAME"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -38,12 +40,12 @@
     </sql>
 
     <select id="getEnabled" resultMap="BaseResultMap">
-        SELECT * FROM AML_DICT WHERE ENABLE = 1
+        SELECT * FROM AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
     </select>
 
 
     <select id="getGROUP" resultMap="get_GROUP">
-        select DISTINCT GROUP_CODE,GROUP_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_COD
+        select DISTINCT GROUP_CODE,GROUP_NAME,META_VAL,META_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
     </select>
 
     <select id="getMETA" resultMap="get_META">

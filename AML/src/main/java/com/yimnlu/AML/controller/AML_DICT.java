@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -18,16 +19,21 @@ import java.util.List;
 @Slf4j
 @Api(tags = "AML_DICT", value = "AML_DICT")
 public class AML_DICT {
-    public static List<com.yimnlu.AML.entity.AML_Dict> _LIST_AML_DICT_;
-    public static List<com.yimnlu.AML.entity.AML_Dict> _LIST_AML_DICT_GROUP_;
-    public static List<com.yimnlu.AML.entity.AML_Dict> _LIST_AML_DICT_META_;
+
+    public static List<?> _LIST_AML_DICT_;
 
     @Resource
     AML_Dict aml_dict;
 
+    @PostConstruct
     @ApiOperation(value = "show", notes = "show")
     @GetMapping("/update")
     public void update(){
-        _LIST_AML_DICT_ = aml_dict.getEnabled();
+        try {
+            _LIST_AML_DICT_ = aml_dict.getGROUP();
+            log.info("AML_DICT Initialized");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
