@@ -8,5 +8,6 @@ import java.util.List;
 @Mapper
 public interface AML_Dict extends BaseMapper<com.yimnlu.AML.entity.AML_Dict> {
     List<com.yimnlu.AML.entity.AML_Dict> getEnabled();
+
     List<com.yimnlu.AML.dto.AML_DICT_GROUP> getGROUP();
 }

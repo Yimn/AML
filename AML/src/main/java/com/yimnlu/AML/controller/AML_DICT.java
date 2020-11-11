@@ -1,6 +1,6 @@
 package com.yimnlu.AML.controller;
 
-import com.yimnlu.AML.dao.AML_Dict;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +23,12 @@ public class AML_DICT {
     public static List<?> _LIST_AML_DICT_;
 
     @Resource
-    AML_Dict aml_dict;
+    com.yimnlu.AML.dao.AML_Dict aml_dict;
 
     @PostConstruct
     @ApiOperation(value = "show", notes = "show")
     @GetMapping("/update")
-    public void update(){
+    public void update() {
         try {
             _LIST_AML_DICT_ = aml_dict.getGROUP();
             log.info("AML_DICT Initialized");

@@ -8,23 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import java.util.HashMap;
-
 @RestController
 @CrossOrigin
 @RequestMapping("/HugeTransMakeup")
 @Slf4j
 @Api(tags = "HugeTransMakeup", value = "HugeTransMakeup")
 public class HugeTransMakeup {
-//    @Resource
-//    com.yimnlu.AML.dao.HugeTransMakeup hugeTransMakeup;
-//
-    @ApiOperation(value = "show", notes = "show")
-    @GetMapping("/update")
-    public void Test(){
-        //HashMap<String,String> hashMap = hugeTransMakeup.SP_AFTERIMPORT_R0001("10385194","20190923");
-        //log.info(hashMap+"");
-        log.info("hugeTransMakeup");
+
+    @ApiOperation(value = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。", notes = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。")
+    @GetMapping("/rule_0501")
+    public void rule_0501() {
+
+        log.info("");
     }
 }
