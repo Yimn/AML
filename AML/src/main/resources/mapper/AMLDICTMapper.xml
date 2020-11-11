@@ -40,16 +40,16 @@
     </sql>
 
     <select id="getEnabled" resultMap="BaseResultMap">
-        SELECT * FROM AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+        SELECT * FROM TB_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
     </select>
 
 
     <select id="getGROUP" resultMap="get_GROUP">
-        select DISTINCT GROUP_CODE,GROUP_NAME,META_VAL,META_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+        select DISTINCT GROUP_CODE,GROUP_NAME,META_VAL,META_NAME from TB_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
     </select>
 
     <select id="getMETA" resultMap="get_META">
-        select DISTINCT GROUP_CODE,GROUP_NAME from AML_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+        select DISTINCT GROUP_CODE,GROUP_NAME from TB_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
     </select>
 
 

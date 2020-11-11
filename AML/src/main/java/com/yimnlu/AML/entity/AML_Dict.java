@@ -1,9 +1,7 @@
 package com.yimnlu.AML.entity;
 
-import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
-@TableName("AML_DICT")
 @Data
 public class AML_Dict {
     private String BANK;
