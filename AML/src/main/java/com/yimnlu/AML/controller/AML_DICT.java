@@ -23,7 +23,7 @@ public class AML_DICT {
     public static List<?> _LIST_AML_DICT_;
 
     @Resource
-    com.yimnlu.AML.dao.AML_Dict aml_dict;
+    com.yimnlu.AML.dao.AML_DictMapper aml_dict;
 
     @PostConstruct
     @ApiOperation(value = "show", notes = "show")

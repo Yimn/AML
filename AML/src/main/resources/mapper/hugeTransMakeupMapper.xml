@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yimnlu.AML.dao.hugeTransMakeup">
+<mapper namespace="com.yimnlu.AML.dao.hugeTransMakeupMapper">
 
     <!-- 开启二级缓存 -->
     <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
+    <resultMap id="ERR_CODE_SET" type="com.yimnlu.AML.dto.ERR_CODE_SET">
+        <result column="ERR_CODE" property="ERR_CODE"/>
+        <result column="ERR_MSG" property="ERR_MSG"/>
+    </resultMap>
 
+    <select id="rule_0901" resultMap="ERR_CODE_SET">
+        DECLARE @ERR_CODE NUMERIC,@ERR_MSG  VARCHAR(200)
+        EXEC SP_HUGETRANS_0901 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        SELECT @ERR_CODE,@ERR_MSG
+    </select>
+
+    <select id="rule_0902" resultMap="ERR_CODE_SET">
+        DECLARE @ERR_CODE NUMERIC,@ERR_MSG  VARCHAR(200)
+        EXEC SP_HUGETRANS_0902 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        SELECT @ERR_CODE,@ERR_MSG
+    </select>
+
+    <select id="rule_0903" resultMap="ERR_CODE_SET">
+        DECLARE @ERR_CODE NUMERIC,@ERR_MSG  VARCHAR(200)
+        EXEC SP_HUGETRANS_0903 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        SELECT @ERR_CODE,@ERR_MSG
+    </select>
+
+    <select id="rule_0904" resultMap="ERR_CODE_SET">
+        DECLARE @ERR_CODE NUMERIC,@ERR_MSG  VARCHAR(200)
+        EXEC SP_HUGETRANS_0904 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        SELECT @ERR_CODE,@ERR_MSG
+    </select>
 </mapper>
