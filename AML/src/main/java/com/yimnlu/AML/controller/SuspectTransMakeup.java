@@ -3,7 +3,6 @@ package com.yimnlu.AML.controller;
 
 import com.yimnlu.AML.dao.suspectTransMakeupMapper;
 import com.yimnlu.AML.dto.ERR_CODE_SET;
-import com.yimnlu.AML.executor.staticReturn.TodayWorkDate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -209,7 +208,7 @@ public class SuspectTransMakeup {
     public void rule_R0001(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0001 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0001(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,7 +221,7 @@ public class SuspectTransMakeup {
     public void rule_R0002(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0002 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0002(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -235,7 +234,7 @@ public class SuspectTransMakeup {
     public void rule_R0003(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0003 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0003(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -248,7 +247,7 @@ public class SuspectTransMakeup {
     public void rule_R0004(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0004 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0004(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -261,7 +260,7 @@ public class SuspectTransMakeup {
     public void rule_R0005(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0005 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0005(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -274,7 +273,7 @@ public class SuspectTransMakeup {
     public void rule_R0006(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0006 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0006(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -287,7 +286,7 @@ public class SuspectTransMakeup {
     public void rule_R0007(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0007 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0007(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -300,7 +299,7 @@ public class SuspectTransMakeup {
     public void rule_R0008(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0008 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0008(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -313,7 +312,7 @@ public class SuspectTransMakeup {
     public void rule_R0009(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0009 (DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = STM.rule_R0009(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
