@@ -2,6 +2,7 @@ package com.yimnlu.AML.controller;
 
 import com.yimnlu.AML.dao.hugeTransMakeupMapper;
 import com.yimnlu.AML.dto.ERR_CODE_SET;
+import com.yimnlu.AML.executor.staticReturn.TodayWorkDate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +20,19 @@ public class hugeTransMakeup {
     @Resource
     hugeTransMakeupMapper hugeTransMakeupmapper;
 
-
     @ApiOperation(value = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。", notes = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。")
     @GetMapping("/rule_0901")
     public void rule_0901(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam(value = "WORKDATE") String WORKDATE) {
         try {
+            if (WORKDATE.equals("00000000")){
+                WORKDATE = TodayWorkDate.WORKDATE();
+                log.info("Turn default '00000000' to Today.");
+            }
+            if (DEPARTID.equals("00000000")){
+                DEPARTID = "10385194";
+                log.info("Turn default '00000000' to default DEPARTID.");
+            }
             List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0901(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
@@ -37,6 +45,14 @@ public class hugeTransMakeup {
     public void rule_0902(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
+            if (WORKDATE.equals("00000000")){
+                WORKDATE = TodayWorkDate.WORKDATE();
+                log.info("Turn default '00000000' to Today.");
+            }
+            if (DEPARTID.equals("00000000")){
+                DEPARTID = "10385194";
+                log.info("Turn default '00000000' to default DEPARTID.");
+            }
             List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0902(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
@@ -49,6 +65,14 @@ public class hugeTransMakeup {
     public void rule_0903(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
+            if (WORKDATE.equals("00000000")){
+                WORKDATE = TodayWorkDate.WORKDATE();
+                log.info("Turn default '00000000' to Today.");
+            }
+            if (DEPARTID.equals("00000000")){
+                DEPARTID = "10385194";
+                log.info("Turn default '00000000' to default DEPARTID.");
+            }
             List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0903(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
@@ -61,6 +85,14 @@ public class hugeTransMakeup {
     public void rule_0904(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
+            if (WORKDATE.equals("00000000")){
+                WORKDATE = TodayWorkDate.WORKDATE();
+                log.info("Turn default '00000000' to Today.");
+            }
+            if (DEPARTID.equals("00000000")){
+                DEPARTID = "10385194";
+                log.info("Turn default '00000000' to default DEPARTID.");
+            }
             List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0904(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
@@ -74,7 +106,15 @@ public class hugeTransMakeup {
     public void Batch_090X(
             @RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
-        log.info("---------------------Ready to batch R0001 to R0009---------------------");
+        log.info("---------------------Ready to batch rule_0901 to rule_0904---------------------");
+        if (WORKDATE.equals("00000000")){
+            WORKDATE = TodayWorkDate.WORKDATE();
+            log.info("Turn default '00000000' to Today.");
+        }
+        if (DEPARTID.equals("00000000")){
+            DEPARTID = "10385194";
+            log.info("Turn default '00000000' to default DEPARTID.");
+        }
         log.info("Param: DEPARTID:" + DEPARTID + " WORKDATE:" + WORKDATE);
         log.info("Executing rule_0901>>>>>>>>>>>>>");
         rule_0901(DEPARTID, WORKDATE);
@@ -84,6 +124,6 @@ public class hugeTransMakeup {
         rule_0903(DEPARTID, WORKDATE);
         log.info("Executing rule_0904>>>>>>>>>>>>>");
         rule_0904(DEPARTID, WORKDATE);
-        log.info("-----------------------------Batch finished----------------------------");
+        log.info("---------------------------------Batch finished-------------------------------");
     }
 }
