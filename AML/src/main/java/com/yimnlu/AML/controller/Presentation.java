@@ -27,10 +27,10 @@ public class Presentation {
         try {
             if (WORKDATE.equals("00000000")){
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info("Turn default WORKDATE'00000000' to "+TodayWorkDate.WORKDATE());
             }
             List<AML_ANALYSISRESULT> aml_analysisresultList = presentationMapper.selectByWorkDate(WORKDATE);
-            log.info(""+aml_analysisresultList);
+            log.info("Query "+aml_analysisresultList.size()+aml_analysisresultList);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();

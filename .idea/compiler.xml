@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AML" />
         <module name="ETL" />
-        <module name="CodeGenerator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
