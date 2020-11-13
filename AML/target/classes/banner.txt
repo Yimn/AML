@@ -3,4 +3,7 @@ __  ___                 __
  \  / / __ `__ \/ __ \/ /   / / / /
  / / / / / / / / / / / /___/ /_/ /
 /_/_/_/ /_/ /_/_/ /_/_____/\__,_/          Graduation Thesis                               Since 2020/11/1
-                                   
+
+Current Global Variables:
+DEPART_ID has variable:10385194
+WORKDATE 00000000 -> Today

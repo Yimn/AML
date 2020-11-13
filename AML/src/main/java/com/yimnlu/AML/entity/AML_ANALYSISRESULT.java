@@ -1,0 +1,75 @@
+package com.yimnlu.AML.entity;
+
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
+@Data
+@TableName("AML_ANALYSISRESULT")
+public class AML_ANALYSISRESULT {
+    private String WORK_DATE;
+    private String BATCH_NO;
+    private String REF_NO;
+    private String RULE_CODE;
+    private String DEPART_ID;
+    private String RULE_TYPE;
+    private String UNIT_NAME;
+    private String UNIT_CODE;
+    private String RELATION_TYPE;
+    private String REPORT_DATE;
+    private String SHADINESS_LEVEL;
+    private String SHADINESS_DESC;
+    private String ACTION_MEASURE;
+    private String ORIG_BATCH_NO;
+    private String ORIG_WORK_DATE;
+    private String ORIG_CLIENT_ID;
+    private String ORIG_REF_NO;
+    private String ORIG_TRADE_DATE;
+    private String ORIG_RULE_CODE;
+    private String REPORT_TYPE;
+    private String IF_RPT;
+    private String RPT_STATUS;
+    private String FINAL_RPT_STATUS;
+    private String RET_MSE;
+    private String REPORTER;
+    private String RPT_FILE;
+    private String RPT_ZIP;
+    private String TOTAL_COUNT1;
+    private String TOTAL_COUNT2;
+    private String SERIAL_NUM_1;
+    private String SERIAL_NUM_2;
+    private String SERIAL_NUM_3;
+    private String IS_DEL;
+    private String DEL_INFO;
+    private String MAKE_STATUS;
+    private String MAKER;
+    private String MAKE_TIME;
+    private String CHECK_STATUS;
+    private String CHECKER;
+    private String CHECK_TIME;
+    private String CHECK_INFO;
+    private String FILLER1;
+    private String FILLER2;
+    private String FILLER3;
+    private String SHADINESS_REP_NAME;
+    private String SHADINESS_REP_IC_TYPE;
+    private String SHADINESS_REP_IC_TYPE_MEMO;
+    private String SHADINESS_REP_IC_NO;
+    private String SHADINESS_SRD_NAME;
+    private String SHADINESS_SRD_IC_TYPE;
+    private String SHADINESS_SRD_IC_TYPE_MEMO;
+    private String SHADINESS_SRD_IC_NO;
+    private String RPT_COUNT;
+    private String SHADINESS_TRPT_POINT;
+    private String TRAN_CUST_BEHAVIOR;
+    private String DOUBT_ANALYSIS;
+    private String SHADINESS_CRIME_TYPE;
+    private String SHADINESS_TRAN_CODE;
+    private String RPT_DIR;
+    private String O_RPT_DIR;
+    private String O_TRPT_POINT;
+    private String MAN_CORRECT_FLAG;
+    private String RPT_DOT_CODE;
+    private String SERIAL_NUM_4;
+    private String SHADINESS_TRPT_POINT_MEMO;
+    private String ORG_RPT_FILE;
+}

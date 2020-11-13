@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimnlu.AML.dao.PresentationMapper">
+    <resultMap id="aml" type="com.yimnlu.AML.entity.AML_ANALYSISRESULT">
+        <result column="WORK_DATE" property="WORK_DATE"/>
+        <result column="BATCH_NO" property="BATCH_NO"/>
+        <result column="REF_NO" property="REF_NO"/>
+        <result column="RULE_CODE" property="RULE_CODE"/>
+        <result column="DEPART_ID" property="DEPART_ID"/>
+        <result column="RULE_TYPE" property="RULE_TYPE"/>
+        <result column="UNIT_NAME" property="UNIT_NAME"/>
+        <result column="UNIT_CODE" property="UNIT_CODE"/>
+        <result column="RELATION_TYPE" property="RELATION_TYPE"/>
+        <result column="REPORT_DATE" property="REPORT_DATE"/>
+        <result column="SHADINESS_LEVEL" property="SHADINESS_LEVEL"/>
+        <result column="SHADINESS_DESC" property="SHADINESS_DESC"/>
+        <result column="ACTION_MEASURE" property="ACTION_MEASURE"/>
+        <result column="ORIG_BATCH_NO" property="ORIG_BATCH_NO"/>
+        <result column="ORIG_WORK_DATE" property="ORIG_WORK_DATE"/>
+        <result column="ORIG_CLIENT_ID" property="ORIG_CLIENT_ID"/>
+        <result column="ORIG_REF_NO" property="ORIG_REF_NO"/>
+        <result column="ORIG_TRADE_DATE" property="ORIG_TRADE_DATE"/>
+        <result column="ORIG_RULE_CODE" property="ORIG_RULE_CODE"/>
+        <result column="REPORT_TYPE" property="REPORT_TYPE"/>
+
+    </resultMap>
+
+    <!-- 开启二级缓存 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <select id="selectByWorkDate" resultType="aml">
+        SELECT WORK_DATE, BATCH_NO, REF_NO, RULE_CODE, DEPART_ID, RULE_TYPE, UNIT_NAME, UNIT_CODE, RELATION_TYPE
+        , REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE, ORIG_CLIENT_ID
+        , ORIG_REF_NO, ORIG_TRADE_DATE, ORIG_RULE_CODE, REPORT_TYPE, IF_RPT, RPT_STATUS, FINAL_RPT_STATUS, RET_MSE, REPORTER
+        , RPT_FILE, RPT_ZIP, TOTAL_COUNT1, TOTAL_COUNT2, SERIAL_NUM_1, SERIAL_NUM_2, SERIAL_NUM_3, IS_DEL, DEL_INFO, MAKE_STATUS
+        , MAKER, MAKE_TIME, CHECK_STATUS, CHECKER, CHECK_TIME, CHECK_INFO, FILLER1, FILLER2, FILLER3, SHADINESS_REP_NAME, SHADINESS_REP_IC_TYPE
+        , SHADINESS_REP_IC_TYPE_MEMO, SHADINESS_REP_IC_NO, SHADINESS_SRD_NAME, SHADINESS_SRD_IC_TYPE, SHADINESS_SRD_IC_TYPE_MEMO, SHADINESS_SRD_IC_NO
+        , RPT_COUNT, SHADINESS_TRPT_POINT, TRAN_CUST_BEHAVIOR, DOUBT_ANALYSIS, SHADINESS_CRIME_TYPE, SHADINESS_TRAN_CODE, RPT_DIR, O_RPT_DIR, O_TRPT_POINT
+        , MAN_CORRECT_FLAG, RPT_DOT_CODE, SERIAL_NUM_4, SHADINESS_TRPT_POINT_MEMO, ORG_RPT_FILE
+        FROM AML_ANALYSISRESULT
+        WHERE 1=1 AND WORK_DATE = #{WORKDATE}
+
+    </select>
+</mapper>
