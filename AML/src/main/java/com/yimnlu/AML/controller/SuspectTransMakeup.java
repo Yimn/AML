@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static com.yimnlu.AML.executor.DICT.*;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/SuspectTransMakeup")
@@ -20,7 +22,7 @@ import java.util.List;
 @Api(tags = "SuspectTransMakeup", value = "SuspectTransMakeup")
 public class SuspectTransMakeup {
     @Resource
-    suspectTransMakeupMapper STM;
+    suspectTransMakeupMapper stm;
     private List<String> batch;
 
     @ResponseBody
@@ -209,16 +211,16 @@ public class SuspectTransMakeup {
     public void rule_R0001(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0001(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0001(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -230,16 +232,16 @@ public class SuspectTransMakeup {
     public void rule_R0002(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0002(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0002(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -251,16 +253,16 @@ public class SuspectTransMakeup {
     public void rule_R0003(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0003(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0003(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -272,16 +274,16 @@ public class SuspectTransMakeup {
     public void rule_R0004(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0004(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0004(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -293,16 +295,16 @@ public class SuspectTransMakeup {
     public void rule_R0005(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0005(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0005(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -314,16 +316,16 @@ public class SuspectTransMakeup {
     public void rule_R0006(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0006(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0006(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -335,16 +337,16 @@ public class SuspectTransMakeup {
     public void rule_R0007(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0007(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0007(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -356,16 +358,16 @@ public class SuspectTransMakeup {
     public void rule_R0008(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0008(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0008(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -377,16 +379,16 @@ public class SuspectTransMakeup {
     public void rule_R0009(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default '00000000' to Today.");
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
-            if (DEPARTID.equals("00000000")){
-                DEPARTID = "10385194";
-                log.info("Turn default '00000000' to default DEPARTID.");
+            if (DEPARTID.equals(DEFAULT_WORKDATE)) {
+                DEPARTID = DEFAULT_DEPART_ID;
+                log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = STM.rule_R0009(DEPARTID, WORKDATE);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            List<ERR_CODE_SET> err_code_sets = stm.rule_R0009(DEPARTID, WORKDATE);
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }

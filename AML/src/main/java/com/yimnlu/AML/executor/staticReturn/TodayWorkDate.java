@@ -7,7 +7,6 @@ public class TodayWorkDate {
 
     public static String WORKDATE() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String str = sdf.format(new Date());
-        return str;
+        return sdf.format(new Date());
     }
 }

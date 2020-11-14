@@ -8,6 +8,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface PresentationMapper extends BaseMapper {
+public interface presentationMapper extends BaseMapper {
     List<AML_ANALYSISRESULT> selectByWorkDate(@Param(value = "WORKDATE")String WORKDATE);
 }

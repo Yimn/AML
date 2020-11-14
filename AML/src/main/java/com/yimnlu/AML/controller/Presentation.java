@@ -1,6 +1,6 @@
 package com.yimnlu.AML.controller;
 
-import com.yimnlu.AML.dao.PresentationMapper;
+import com.yimnlu.AML.dao.presentationMapper;
 import com.yimnlu.AML.entity.AML_ANALYSISRESULT;
 import com.yimnlu.AML.executor.staticReturn.TodayWorkDate;
 import io.swagger.annotations.Api;
@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
+import static com.yimnlu.AML.executor.DICT.*;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/Presentation")
@@ -18,20 +20,20 @@ import java.util.List;
 @Api(tags = "Presentation", value = "Presentation")
 public class Presentation {
     @Resource
-    PresentationMapper presentationMapper;
+    presentationMapper presentationMapper;
 
     @ResponseBody
     @ApiOperation(value = "queryByWorkDate", notes = "queryByWorkDate")
     @GetMapping("/queryByWorkDate")
     public void queryByWorkDate (@RequestParam(value = "WORKDATE",defaultValue = "00000000")String WORKDATE){
         try {
-            if (WORKDATE.equals("00000000")){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)){
                 WORKDATE = TodayWorkDate.WORKDATE();
-                log.info("Turn default WORKDATE'00000000' to "+TodayWorkDate.WORKDATE());
+                log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
             List<AML_ANALYSISRESULT> aml_analysisresultList = presentationMapper.selectByWorkDate(WORKDATE);
             log.info("Query "+aml_analysisresultList.size()+aml_analysisresultList);
-            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();
         }
