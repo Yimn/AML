@@ -3,19 +3,19 @@
 <mapper namespace="com.yimnlu.AML.dao.TbAnalysisrulesMapper">
 
     <!-- 开启二级缓存 -->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yimnlu.AML.entity.TbAnalysisrules">
-        <id column="DEPART_ID" property="departId" />
-        <result column="RULE_CODE" property="ruleCode" />
-        <result column="RULE_TYPE" property="ruleType" />
-        <result column="RULE_NOTES" property="ruleNotes" />
-        <result column="RULE_ANALYSE_METHOD" property="ruleAnalyseMethod" />
-        <result column="RULE_INDEX" property="ruleIndex" />
-        <result column="FILLER1" property="filler1" />
-        <result column="FILLER3" property="filler3" />
-        <result column="FILLER2" property="filler2" />
+        <id column="DEPART_ID" property="departId"/>
+        <result column="RULE_CODE" property="ruleCode"/>
+        <result column="RULE_TYPE" property="ruleType"/>
+        <result column="RULE_NOTES" property="ruleNotes"/>
+        <result column="RULE_ANALYSE_METHOD" property="ruleAnalyseMethod"/>
+        <result column="RULE_INDEX" property="ruleIndex"/>
+        <result column="FILLER1" property="filler1"/>
+        <result column="FILLER3" property="filler3"/>
+        <result column="FILLER2" property="filler2"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

@@ -1,4 +1,3 @@
-
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
@@ -25,6 +24,20 @@ public class Generator {
         generator.generateByTables(serviceNameStartWithI, packageName, tableNames);
     }
 
+    /**
+     * 配置数据源
+     *
+     * @return 数据源配置 DataSourceConfig
+     * @author luyimin
+     */
+    private static DataSourceConfig getDataSourceConfig() {
+        String dbUrl = "jdbc:sqlserver://192.168.21.58:1433;DatabaseName=AML";
+        return new DataSourceConfig().setDbType(DbType.SQL_SERVER)
+                .setUrl(dbUrl)
+                .setUsername("sa")
+                .setPassword("Ff17011120")
+                .setDriverName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    }
 
     /**
      * 根据表自动生成
@@ -137,21 +150,6 @@ public class Generator {
                 .setNaming(NamingStrategy.underline_to_camel)
                 //需要生成的的表名，多个表名传数组
                 .setInclude(tableNames);
-    }
-
-    /**
-     * 配置数据源
-     *
-     * @return 数据源配置 DataSourceConfig
-     * @author luyimin
-     */
-    private static DataSourceConfig getDataSourceConfig() {
-        String dbUrl = "jdbc:sqlserver://192.168.21.58:1433;DatabaseName=AML";
-        return new DataSourceConfig().setDbType(DbType.SQL_SERVER)
-                .setUrl(dbUrl)
-                .setUsername("sa")
-                .setPassword("Ff17011120")
-                .setDriverName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
     }
 
     /**

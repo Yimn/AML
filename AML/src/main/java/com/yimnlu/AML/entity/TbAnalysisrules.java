@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author luyimin
@@ -103,15 +103,15 @@ public class TbAnalysisrules implements Serializable {
     @Override
     public String toString() {
         return "TbAnalysisrules{" +
-        "departId=" + departId +
-        ", ruleCode=" + ruleCode +
-        ", ruleType=" + ruleType +
-        ", ruleNotes=" + ruleNotes +
-        ", ruleAnalyseMethod=" + ruleAnalyseMethod +
-        ", ruleIndex=" + ruleIndex +
-        ", filler1=" + filler1 +
-        ", filler3=" + filler3 +
-        ", filler2=" + filler2 +
-        "}";
+                "departId=" + departId +
+                ", ruleCode=" + ruleCode +
+                ", ruleType=" + ruleType +
+                ", ruleNotes=" + ruleNotes +
+                ", ruleAnalyseMethod=" + ruleAnalyseMethod +
+                ", ruleIndex=" + ruleIndex +
+                ", filler1=" + filler1 +
+                ", filler3=" + filler3 +
+                ", filler2=" + filler2 +
+                "}";
     }
 }

@@ -7,5 +7,5 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface TbAnalysisrulesService extends IService<TbAnalysisrules> {
-    public HashMap<String,String> TreatRules(List<TbAnalysisrules> _Analysis_Rules_);
+    public HashMap<String, String> TreatRules(List<TbAnalysisrules> _Analysis_Rules_);
 }

@@ -1,6 +1,5 @@
 package com.yimnlu.AML.entity;
 
-import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
 @Data

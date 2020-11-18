@@ -25,14 +25,14 @@ public class PresentationController {
     @ResponseBody
     @ApiOperation(value = "queryByWorkDate", notes = "queryByWorkDate")
     @GetMapping("/queryByWorkDate")
-    public void queryByWorkDate (@RequestParam(value = "WORKDATE",defaultValue = "00000000")String WORKDATE){
+    public void queryByWorkDate(@RequestParam(value = "WORKDATE", defaultValue = "00000000") String WORKDATE) {
         try {
-            if (WORKDATE.equals(DEFAULT_WORKDATE)){
+            if (WORKDATE.equals(DEFAULT_WORKDATE)) {
                 WORKDATE = TodayWorkDate.WORKDATE();
                 log.info(DEFAULT_DUPLICATE_WORKDATE);
             }
             List<AML_ANALYSISRESULT> aml_analysisresultList = presentationMapper.selectByWorkDate(WORKDATE);
-            log.info("Query "+aml_analysisresultList.size()+aml_analysisresultList);
+            log.info("Query " + aml_analysisresultList.size() + aml_analysisresultList);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + _FINISHED);
         } catch (Exception e) {
             e.printStackTrace();

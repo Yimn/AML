@@ -1,6 +1,5 @@
 package com.yimnlu.AML.executor;
 
-import com.yimnlu.AML.executor.staticReturn.TodayWorkDate;
 
 public class DICT {
     public static final String DEFAULT_WORKDATE = "00000000";

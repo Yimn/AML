@@ -2,72 +2,72 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yimnlu.AML.dao.presentationMapper">
     <resultMap id="aml" type="com.yimnlu.AML.entity.AML_ANALYSISRESULT">
-        <result column="WORK_DATE" property="workDate" />
-        <result column="BATCH_NO" property="batchNo" />
-        <result column="REF_NO" property="refNo" />
-        <result column="RULE_CODE" property="ruleCode" />
-        <result column="DEPART_ID" property="departId" />
-        <result column="RULE_TYPE" property="ruleType" />
-        <result column="UNIT_NAME" property="unitName" />
-        <result column="UNIT_CODE" property="unitCode" />
-        <result column="RELATION_TYPE" property="relationType" />
-        <result column="REPORT_DATE" property="reportDate" />
-        <result column="SHADINESS_LEVEL" property="shadinessLevel" />
-        <result column="SHADINESS_DESC" property="shadinessDesc" />
-        <result column="ACTION_MEASURE" property="actionMeasure" />
-        <result column="ORIG_BATCH_NO" property="origBatchNo" />
-        <result column="ORIG_WORK_DATE" property="origWorkDate" />
-        <result column="ORIG_CLIENT_ID" property="origClientId" />
-        <result column="ORIG_REF_NO" property="origRefNo" />
-        <result column="ORIG_TRADE_DATE" property="origTradeDate" />
-        <result column="ORIG_RULE_CODE" property="origRuleCode" />
-        <result column="REPORT_TYPE" property="reportType" />
-        <result column="IF_RPT" property="ifRpt" />
-        <result column="RPT_STATUS" property="rptStatus" />
-        <result column="FINAL_RPT_STATUS" property="finalRptStatus" />
-        <result column="RET_MSE" property="retMse" />
-        <result column="REPORTER" property="reporter" />
-        <result column="RPT_FILE" property="rptFile" />
-        <result column="RPT_ZIP" property="rptZip" />
-        <result column="TOTAL_COUNT1" property="totalCount1" />
-        <result column="TOTAL_COUNT2" property="totalCount2" />
-        <result column="SERIAL_NUM_1" property="serialNum1" />
-        <result column="SERIAL_NUM_2" property="serialNum2" />
-        <result column="SERIAL_NUM_3" property="serialNum3" />
-        <result column="IS_DEL" property="isDel" />
-        <result column="DEL_INFO" property="delInfo" />
-        <result column="MAKE_STATUS" property="makeStatus" />
-        <result column="MAKER" property="maker" />
-        <result column="MAKE_TIME" property="makeTime" />
-        <result column="CHECK_STATUS" property="checkStatus" />
-        <result column="CHECKER" property="checker" />
-        <result column="CHECK_TIME" property="checkTime" />
-        <result column="CHECK_INFO" property="checkInfo" />
-        <result column="FILLER1" property="filler1" />
-        <result column="FILLER2" property="filler2" />
-        <result column="FILLER3" property="filler3" />
-        <result column="SHADINESS_REP_NAME" property="shadinessRepName" />
-        <result column="SHADINESS_REP_IC_TYPE" property="shadinessRepIcType" />
-        <result column="SHADINESS_REP_IC_TYPE_MEMO" property="shadinessRepIcTypeMemo" />
-        <result column="SHADINESS_REP_IC_NO" property="shadinessRepIcNo" />
-        <result column="SHADINESS_SRD_NAME" property="shadinessSrdName" />
-        <result column="SHADINESS_SRD_IC_TYPE" property="shadinessSrdIcType" />
-        <result column="SHADINESS_SRD_IC_TYPE_MEMO" property="shadinessSrdIcTypeMemo" />
-        <result column="SHADINESS_SRD_IC_NO" property="shadinessSrdIcNo" />
-        <result column="RPT_COUNT" property="rptCount" />
-        <result column="SHADINESS_TRPT_POINT" property="shadinessTrptPoint" />
-        <result column="TRAN_CUST_BEHAVIOR" property="tranCustBehavior" />
-        <result column="DOUBT_ANALYSIS" property="doubtAnalysis" />
-        <result column="SHADINESS_CRIME_TYPE" property="shadinessCrimeType" />
-        <result column="SHADINESS_TRAN_CODE" property="shadinessTranCode" />
-        <result column="RPT_DIR" property="rptDir" />
-        <result column="O_RPT_DIR" property="oRptDir" />
-        <result column="O_TRPT_POINT" property="oTrptPoint" />
-        <result column="MAN_CORRECT_FLAG" property="manCorrectFlag" />
-        <result column="RPT_DOT_CODE" property="rptDotCode" />
-        <result column="SERIAL_NUM_4" property="serialNum4" />
-        <result column="SHADINESS_TRPT_POINT_MEMO" property="shadinessTrptPointMemo" />
-        <result column="ORG_RPT_FILE" property="orgRptFile" />
+        <result column="WORK_DATE" property="workDate"/>
+        <result column="BATCH_NO" property="batchNo"/>
+        <result column="REF_NO" property="refNo"/>
+        <result column="RULE_CODE" property="ruleCode"/>
+        <result column="DEPART_ID" property="departId"/>
+        <result column="RULE_TYPE" property="ruleType"/>
+        <result column="UNIT_NAME" property="unitName"/>
+        <result column="UNIT_CODE" property="unitCode"/>
+        <result column="RELATION_TYPE" property="relationType"/>
+        <result column="REPORT_DATE" property="reportDate"/>
+        <result column="SHADINESS_LEVEL" property="shadinessLevel"/>
+        <result column="SHADINESS_DESC" property="shadinessDesc"/>
+        <result column="ACTION_MEASURE" property="actionMeasure"/>
+        <result column="ORIG_BATCH_NO" property="origBatchNo"/>
+        <result column="ORIG_WORK_DATE" property="origWorkDate"/>
+        <result column="ORIG_CLIENT_ID" property="origClientId"/>
+        <result column="ORIG_REF_NO" property="origRefNo"/>
+        <result column="ORIG_TRADE_DATE" property="origTradeDate"/>
+        <result column="ORIG_RULE_CODE" property="origRuleCode"/>
+        <result column="REPORT_TYPE" property="reportType"/>
+        <result column="IF_RPT" property="ifRpt"/>
+        <result column="RPT_STATUS" property="rptStatus"/>
+        <result column="FINAL_RPT_STATUS" property="finalRptStatus"/>
+        <result column="RET_MSE" property="retMse"/>
+        <result column="REPORTER" property="reporter"/>
+        <result column="RPT_FILE" property="rptFile"/>
+        <result column="RPT_ZIP" property="rptZip"/>
+        <result column="TOTAL_COUNT1" property="totalCount1"/>
+        <result column="TOTAL_COUNT2" property="totalCount2"/>
+        <result column="SERIAL_NUM_1" property="serialNum1"/>
+        <result column="SERIAL_NUM_2" property="serialNum2"/>
+        <result column="SERIAL_NUM_3" property="serialNum3"/>
+        <result column="IS_DEL" property="isDel"/>
+        <result column="DEL_INFO" property="delInfo"/>
+        <result column="MAKE_STATUS" property="makeStatus"/>
+        <result column="MAKER" property="maker"/>
+        <result column="MAKE_TIME" property="makeTime"/>
+        <result column="CHECK_STATUS" property="checkStatus"/>
+        <result column="CHECKER" property="checker"/>
+        <result column="CHECK_TIME" property="checkTime"/>
+        <result column="CHECK_INFO" property="checkInfo"/>
+        <result column="FILLER1" property="filler1"/>
+        <result column="FILLER2" property="filler2"/>
+        <result column="FILLER3" property="filler3"/>
+        <result column="SHADINESS_REP_NAME" property="shadinessRepName"/>
+        <result column="SHADINESS_REP_IC_TYPE" property="shadinessRepIcType"/>
+        <result column="SHADINESS_REP_IC_TYPE_MEMO" property="shadinessRepIcTypeMemo"/>
+        <result column="SHADINESS_REP_IC_NO" property="shadinessRepIcNo"/>
+        <result column="SHADINESS_SRD_NAME" property="shadinessSrdName"/>
+        <result column="SHADINESS_SRD_IC_TYPE" property="shadinessSrdIcType"/>
+        <result column="SHADINESS_SRD_IC_TYPE_MEMO" property="shadinessSrdIcTypeMemo"/>
+        <result column="SHADINESS_SRD_IC_NO" property="shadinessSrdIcNo"/>
+        <result column="RPT_COUNT" property="rptCount"/>
+        <result column="SHADINESS_TRPT_POINT" property="shadinessTrptPoint"/>
+        <result column="TRAN_CUST_BEHAVIOR" property="tranCustBehavior"/>
+        <result column="DOUBT_ANALYSIS" property="doubtAnalysis"/>
+        <result column="SHADINESS_CRIME_TYPE" property="shadinessCrimeType"/>
+        <result column="SHADINESS_TRAN_CODE" property="shadinessTranCode"/>
+        <result column="RPT_DIR" property="rptDir"/>
+        <result column="O_RPT_DIR" property="oRptDir"/>
+        <result column="O_TRPT_POINT" property="oTrptPoint"/>
+        <result column="MAN_CORRECT_FLAG" property="manCorrectFlag"/>
+        <result column="RPT_DOT_CODE" property="rptDotCode"/>
+        <result column="SERIAL_NUM_4" property="serialNum4"/>
+        <result column="SHADINESS_TRPT_POINT_MEMO" property="shadinessTrptPointMemo"/>
+        <result column="ORG_RPT_FILE" property="orgRptFile"/>
     </resultMap>
 
     <!-- 开启二级缓存 -->

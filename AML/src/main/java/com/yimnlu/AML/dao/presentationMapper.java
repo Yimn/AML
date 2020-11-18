@@ -9,5 +9,5 @@ import java.util.List;
 
 @Mapper
 public interface presentationMapper extends BaseMapper {
-    List<AML_ANALYSISRESULT> selectByWorkDate(@Param(value = "WORKDATE")String WORKDATE);
+    List<AML_ANALYSISRESULT> selectByWorkDate(@Param(value = "WORKDATE") String WORKDATE);
 }
