@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimnlu.AML_Platform.dao.BiMapInfoMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yimnlu.AML_Platform.entity.BiMapInfo">
+        <result column="DEPART_ID" property="departId"/>
+        <result column="ACCT_ID" property="acctId"/>
+        <result column="ACCT_CUR" property="acctCur"/>
+        <result column="CLIENT_ID" property="clientId"/>
+        <result column="ACCT_TYPE" property="acctType"/>
+        <result column="FX_ACCT_TYPE" property="fxAcctType"/>
+        <result column="CLOSE_DATE" property="closeDate"/>
+        <result column="OPEN_DATE" property="openDate"/>
+        <result column="ACCT_CATA" property="acctCata"/>
+        <result column="LIMIT_TYPE" property="limitType"/>
+        <result column="LIMIT" property="limit"/>
+        <result column="PBOC_NUM_ACCT" property="pbocNumAcct"/>
+        <result column="FILE_NUM" property="fileNum"/>
+        <result column="ACC_STATUS" property="accStatus"/>
+        <result column="CREDIT_AMT" property="creditAmt"/>
+        <result column="DEBIT_AMT" property="debitAmt"/>
+        <result column="BALANCE_AMT" property="balanceAmt"/>
+        <result column="SYS_CREDIT_AMT" property="sysCreditAmt"/>
+        <result column="SYS_DEBIT_AMT" property="sysDebitAmt"/>
+        <result column="SYS_BALANCE_AMT" property="sysBalanceAmt"/>
+        <result column="LOCATION" property="location"/>
+        <result column="LONGITUDE" property="longitude"/>
+        <result column="LATITUDE" property="latitude"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        DEPART_ID, ACCT_ID, ACCT_CUR, CLIENT_ID, ACCT_TYPE, FX_ACCT_TYPE, CLOSE_DATE, OPEN_DATE, ACCT_CATA, LIMIT_TYPE, LIMIT, PBOC_NUM_ACCT, FILE_NUM, ACC_STATUS, CREDIT_AMT, DEBIT_AMT, BALANCE_AMT, SYS_CREDIT_AMT, SYS_DEBIT_AMT, SYS_BALANCE_AMT, LOCATION, LONGITUDE, LATITUDE
+    </sql>
+
+</mapper>
