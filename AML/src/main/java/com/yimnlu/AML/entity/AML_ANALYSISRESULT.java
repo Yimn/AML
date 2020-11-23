@@ -2,8 +2,13 @@ package com.yimnlu.AML.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class AML_ANALYSISRESULT {
+public class AML_ANALYSISRESULT implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String workDate;
     private String batchNo;
     private String refNo;

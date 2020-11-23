@@ -2,8 +2,13 @@ package com.yimnlu.AML.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class AML_Dict {
+public class AML_Dict implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String BANK;
     private String APPLICATION;
     private String GROUP_CODE;

@@ -7,12 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AML" />
         <module name="ETL" />
+        <module name="AML" />
+        <module name="AML_Platform" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AML" target="1.8" />
+      <module name="AML_Platform" target="1.8" />
       <module name="CodeGenerator" target="1.5" />
       <module name="ETL" target="1.5" />
     </bytecodeTargetLevel>
@@ -20,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AML" options="-parameters" />
+      <module name="AML_Platform" options="-parameters" />
     </option>
   </component>
 </project>
