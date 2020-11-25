@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/sys")
 @Slf4j
 @Api(tags = "SysController", value = "SysController")
@@ -27,6 +27,21 @@ public class SysController {
         String password = sysLoginModel.getPassword();
         Map map = new HashMap();
         map.put("name","name");
+        return new ModelAndView(new MappingJackson2JsonView(), map);
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "console", notes = "console")
+    @RequestMapping(value = "/console", method = RequestMethod.POST)
+    public ModelAndView webConsole(@RequestParam("console")String console, HttpServletRequest request){
+        try {
+            log.info(request.getParameter("console1"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        log.info("Web console:"+console);
+        Map map = new HashMap();
+        map.put("Log","200");
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
 }

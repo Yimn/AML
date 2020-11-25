@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/sys")
 @Slf4j
 @Api(tags = "AML_DICT", value = "AML_DICT")

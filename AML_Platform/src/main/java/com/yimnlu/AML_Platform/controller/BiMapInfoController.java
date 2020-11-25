@@ -17,7 +17,6 @@ import javax.annotation.PostConstruct;
  * @since 2020-11-21
  */
 @RestController
-@CrossOrigin
 @RequestMapping("/biMapInfo")
 @Slf4j
 @Api(tags = "BiMapInfoController", value = "BiMapInfoController")

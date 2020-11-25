@@ -25,7 +25,6 @@ import static com.yimnlu.AML_Platform.executor.DICT.DEFAULT_DEPART_ID;
  */
 @Slf4j
 @RestController
-@CrossOrigin
 @RequestMapping("/baseMap")
 public class BaseMapController {
     @Resource
