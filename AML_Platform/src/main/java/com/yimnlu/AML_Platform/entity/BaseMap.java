@@ -1,14 +1,14 @@
 package com.yimnlu.AML_Platform.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yimnlu
@@ -106,15 +106,15 @@ public class BaseMap implements Serializable {
     @Override
     public String toString() {
         return "BaseMap{" +
-        "Id=" + Id +
-        ", departId=" + departId +
-        ", enName=" + enName +
-        ", cnName=" + cnName +
-        ", location=" + location +
-        ", latitude=" + latitude +
-        ", longitude=" + longitude +
-        ", acctId=" + acctId +
-        ", clientId=" + clientId +
-        "}";
+                "Id=" + Id +
+                ", departId=" + departId +
+                ", enName=" + enName +
+                ", cnName=" + cnName +
+                ", location=" + location +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", acctId=" + acctId +
+                ", clientId=" + clientId +
+                "}";
     }
 }

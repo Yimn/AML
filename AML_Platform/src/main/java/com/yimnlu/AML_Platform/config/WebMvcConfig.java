@@ -1,6 +1,5 @@
 package com.yimnlu.AML_Platform.config;
 
-import com.yimnlu.AML_Platform.executor.Interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,11 +43,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/error");
         //super.addInterceptors(registry);
         registry.addInterceptor(HeaderInterceptor());
     }
-
 
     private HandlerInterceptor HeaderInterceptor(){
         return new HandlerInterceptor() {

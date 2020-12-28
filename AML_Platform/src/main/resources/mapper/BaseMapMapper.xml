@@ -3,19 +3,19 @@
 <mapper namespace="com.yimnlu.AML_Platform.dao.BaseMapMapper">
 
     <!-- 开启二级缓存 -->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yimnlu.AML_Platform.entity.BaseMap">
-        <id column="Id" property="Id" />
-        <result column="DEPART_ID" property="departId" />
-        <result column="EN_NAME" property="enName" />
-        <result column="CN_NAME" property="cnName" />
-        <result column="LOCATION" property="location" />
-        <result column="LATITUDE" property="latitude" />
-        <result column="LONGITUDE" property="longitude" />
-        <result column="ACCT_ID" property="acctId" />
-        <result column="CLIENT_ID" property="clientId" />
+        <id column="Id" property="Id"/>
+        <result column="DEPART_ID" property="departId"/>
+        <result column="EN_NAME" property="enName"/>
+        <result column="CN_NAME" property="cnName"/>
+        <result column="LOCATION" property="location"/>
+        <result column="LATITUDE" property="latitude"/>
+        <result column="LONGITUDE" property="longitude"/>
+        <result column="ACCT_ID" property="acctId"/>
+        <result column="CLIENT_ID" property="clientId"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -24,9 +24,9 @@
     </sql>
 
     <select id="_F_BASEMAP_LOCATION_" resultMap="BaseResultMap">
-            SELECT DISTINCT *
-            FROM BASE_MAP
-            WHERE DEPART_ID = #{DEPARTID}
+        SELECT DISTINCT *
+        FROM BASE_MAP
+        WHERE DEPART_ID = #{DEPARTID}
     </select>
 
 </mapper>

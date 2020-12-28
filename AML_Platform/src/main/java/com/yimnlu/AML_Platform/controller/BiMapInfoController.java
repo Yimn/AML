@@ -4,7 +4,10 @@ package com.yimnlu.AML_Platform.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 
@@ -25,7 +28,7 @@ public class BiMapInfoController {
     @PostConstruct
     @ResponseBody
     @ApiOperation(value = "init_map", notes = "init_map")
-    public void init_map(){
+    public void init_map() {
 
     }
 }

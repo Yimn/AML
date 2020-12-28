@@ -1,6 +1,5 @@
 package com.yimnlu.AML_Platform.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.yimnlu.AML_Platform.model.SysLoginModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,11 +21,14 @@ public class SysController {
     @ResponseBody
     @ApiOperation(value = "login", notes = "login")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView Login(@RequestBody SysLoginModel sysLoginModel){
+    public ModelAndView Login(@RequestBody SysLoginModel sysLoginModel) {
+        log.info("Login Presentation");
         String username = sysLoginModel.getUsername();
         String password = sysLoginModel.getPassword();
         Map map = new HashMap();
-        map.put("name","name");
+        map.put("username", username);
+        map.put("password", password);
+        log.info(map+"");
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
 

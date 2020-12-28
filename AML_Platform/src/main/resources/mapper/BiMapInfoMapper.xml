@@ -3,7 +3,7 @@
 <mapper namespace="com.yimnlu.AML_Platform.dao.BiMapInfoMapper">
 
     <!-- 开启二级缓存 -->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yimnlu.AML_Platform.entity.BiMapInfo">
@@ -34,7 +34,9 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        DEPART_ID, ACCT_ID, ACCT_CUR, CLIENT_ID, ACCT_TYPE, FX_ACCT_TYPE, CLOSE_DATE, OPEN_DATE, ACCT_CATA, LIMIT_TYPE, LIMIT, PBOC_NUM_ACCT, FILE_NUM, ACC_STATUS, CREDIT_AMT, DEBIT_AMT, BALANCE_AMT, SYS_CREDIT_AMT, SYS_DEBIT_AMT, SYS_BALANCE_AMT, LOCATION, LONGITUDE, LATITUDE
+        DEPART_ID, ACCT_ID, ACCT_CUR, CLIENT_ID, ACCT_TYPE, FX_ACCT_TYPE, CLOSE_DATE, OPEN_DATE, ACCT_CATA, LIMIT_TYPE,
+        LIMIT, PBOC_NUM_ACCT, FILE_NUM, ACC_STATUS, CREDIT_AMT, DEBIT_AMT, BALANCE_AMT, SYS_CREDIT_AMT, SYS_DEBIT_AMT,
+        SYS_BALANCE_AMT, LOCATION, LONGITUDE, LATITUDE
     </sql>
 
 </mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimnlu.AML_Platform.dao.GeneralQueryMapper">
+
+
+    <resultMap id="suspectCommonQuery" type="com.yimnlu.AML_Platform.dto.SuspectCommonQuery">
+        <result column="WORK_DATE" property="WORK_DATE"/>
+        <result column="REF_NO" property="REF_NO"/>
+        <result column="SHADINESS_DESC" property="SHADINESS_DESC"/>
+        <result column="DEBIT_CREDIT" property="DEBIT_CREDIT"/>
+        <result column="DEPART_NAME" property="DEPART_NAME"/>
+        <result column="CLIENT_NAME" property="CLIENT_NAME"/>
+        <result column="ACCT_ID" property="ACCT_ID"/>
+        <result column="TRADE_DATE" property="TRADE_DATE"/>
+        <result column="CURRENCY" property="CURRENCY"/>
+        <result column="AMT" property="AMT"/>
+        <result column="TRADE_VENUE_COUNTRY" property="TRADE_VENUE_COUNTRY"/>
+        <result column="FUND_USAGE" property="FUND_USAGE"/>
+    </resultMap>
+
+    <select id="SuspectCommonQuery" resultMap="suspectCommonQuery">
+        select aml_datasource.WORK_DATE,aml_datasource.REF_NO,SHADINESS_DESC,DEBIT_CREDIT
+        ,DEPART_NAME,CLIENT_NAME,ACCT_ID,TRADE_DATE,CURRENCY,AMT,TRADE_VENUE_COUNTRY,FUND_USAGE
+        from aml_datasource
+        inner join aml_analysisresult
+        on aml_analysisresult.ref_no = aml_datasource.ref_no
+    </select>
+</mapper>

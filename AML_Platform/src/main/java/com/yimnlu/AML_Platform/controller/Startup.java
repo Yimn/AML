@@ -27,5 +27,4 @@ public class Startup {
         map.put("valid", pa);
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
-
 }
