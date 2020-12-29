@@ -19,10 +19,151 @@
     </resultMap>
 
     <select id="SuspectCommonQuery" resultMap="suspectCommonQuery">
-        select aml_datasource.WORK_DATE,aml_datasource.REF_NO,SHADINESS_DESC,DEBIT_CREDIT
-        ,DEPART_NAME,CLIENT_NAME,ACCT_ID,TRADE_DATE,CURRENCY,AMT,TRADE_VENUE_COUNTRY,FUND_USAGE
+        select aml_datasource.WORK_DATE
+             , aml_datasource.REF_NO
+             , SHADINESS_DESC
+             , DEBIT_CREDIT
+             , DEPART_NAME
+             , CLIENT_NAME
+             , ACCT_ID
+             , TRADE_DATE
+             , CURRENCY
+             , AMT
+             , TRADE_VENUE_COUNTRY
+             , FUND_USAGE
         from aml_datasource
-        inner join aml_analysisresult
-        on aml_analysisresult.ref_no = aml_datasource.ref_no
+                 inner join aml_analysisresult
+                            on aml_analysisresult.ref_no = aml_datasource.ref_no
+    </select>
+
+    <select id="SuspectMonthQuery" resultMap="suspectCommonQuery">
+        select aml_datasource.WORK_DATE
+             , aml_datasource.REF_NO
+             , SHADINESS_DESC
+             , DEBIT_CREDIT
+             , DEPART_NAME
+             , CLIENT_NAME
+             , ACCT_ID
+             , TRADE_DATE
+             , CURRENCY
+             , AMT
+             , TRADE_VENUE_COUNTRY
+             , FUND_USAGE
+        from aml_datasource
+                 inner join aml_analysisresult
+                            on aml_analysisresult.ref_no = aml_datasource.ref_no
+                                and aml_datasource.WORK_DATE = #{WORK_DATE}
+    </select>
+
+
+    <resultMap id="DTA" type="com.yimnlu.AML_Platform.entity.AmlDTA">
+        <result column="WORK_DATE" property="workDate" />
+        <result column="REF_NO" property="refNo" />
+        <result column="ORIG_REF_NO" property="origRefNo" />
+        <result column="DEPART_ID" property="departId" />
+        <result column="SEQ_NO" property="seqNo" />
+        <result column="DEPART_NAME" property="departName" />
+        <result column="DEPART_TYPE" property="departType" />
+        <result column="DEPART_AREACODE" property="departAreacode" />
+        <result column="CLIENT_ID" property="clientId" />
+        <result column="RULE_CODE" property="ruleCode" />
+        <result column="RULE_TYPE" property="ruleType" />
+        <result column="UNIT_NAME" property="unitName" />
+        <result column="UNIT_CODE" property="unitCode" />
+        <result column="RELATION_TYPE" property="relationType" />
+        <result column="REPORT_DATE" property="reportDate" />
+        <result column="SHADINESS_LEVEL" property="shadinessLevel" />
+        <result column="SHADINESS_DESC" property="shadinessDesc" />
+        <result column="ACTION_MEASURE" property="actionMeasure" />
+        <result column="ORIG_BATCH_NO" property="origBatchNo" />
+        <result column="ORIG_WORK_DATE" property="origWorkDate" />
+        <result column="ORIG_CLIENT_ID" property="origClientId" />
+        <result column="ORIG_TRADE_DATE" property="origTradeDate" />
+        <result column="ORIG_RULE_CODE" property="origRuleCode" />
+        <result column="PCODE" property="pcode" />
+        <result column="CLIENT_NAME" property="clientName" />
+        <result column="CLIENT_TYPE" property="clientType" />
+        <result column="CLIENT_IC_TYPE" property="clientIcType" />
+        <result column="CLIENT_IC_TYPE_MEMO" property="clientIcTypeMemo" />
+        <result column="CLIENT_IC_NO" property="clientIcNo" />
+        <result column="CLIENT_NATIONALITY" property="clientNationality" />
+        <result column="PHONE" property="phone" />
+        <result column="ADDRESS" property="address" />
+        <result column="OTHER_CONTACT" property="otherContact" />
+        <result column="INDUSTRY_TYPE" property="industryType" />
+        <result column="REGISTERED_CAPITAL" property="registeredCapital" />
+        <result column="REP_NAME" property="repName" />
+        <result column="REP_IC_TYPE" property="repIcType" />
+        <result column="REP_IC_TYPE_MEMO" property="repIcTypeMemo" />
+        <result column="REP_IC_NO" property="repIcNo" />
+        <result column="AGENT_NAME" property="agentName" />
+        <result column="AGENT_IC_NO" property="agentIcNo" />
+        <result column="AGENT_IC_TYPE" property="agentIcType" />
+        <result column="AGENT_IC_TYPE_MEMO" property="agentIcTypeMemo" />
+        <result column="AGENT_NATIONALITY" property="agentNationality" />
+        <result column="ACCT_ID" property="acctId" />
+        <result column="ACCT_TYPE" property="acctType" />
+        <result column="ACCT_OPEN_TIME" property="acctOpenTime" />
+        <result column="ACCT_CLOSE_TIME" property="acctCloseTime" />
+        <result column="PBOC_NUM_ACCT" property="pbocNumAcct" />
+        <result column="TRADE_DATE" property="tradeDate" />
+        <result column="TRADE_TIME" property="tradeTime" />
+        <result column="VALUE_DATE" property="valueDate" />
+        <result column="TRADE_VENUE_COUNTRY" property="tradeVenueCountry" />
+        <result column="TRADE_VENUE_REGION" property="tradeVenueRegion" />
+        <result column="TRADE_MODE" property="tradeMode" />
+        <result column="DEBIT_CREDIT" property="debitCredit" />
+        <result column="TRADE_COUNTRY" property="tradeCountry" />
+        <result column="TRADE_REGION" property="tradeRegion" />
+        <result column="TRADE_CODE" property="tradeCode" />
+        <result column="FUND_USAGE" property="fundUsage" />
+        <result column="CURRENCY" property="currency" />
+        <result column="AMT" property="amt" />
+        <result column="DOLLAR_AMT" property="dollarAmt" />
+        <result column="CTPY_FI_CODE" property="ctpyFiCode" />
+        <result column="CTPY_FI_PCODE" property="ctpyFiPcode" />
+        <result column="CTPY_FI_NAME" property="ctpyFiName" />
+        <result column="CTPY_FI_TYPE" property="ctpyFiType" />
+        <result column="CTPY_FI_COUNTRY" property="ctpyFiCountry" />
+        <result column="CTPY_FI_REGION_CODE" property="ctpyFiRegionCode" />
+        <result column="CTPY_NAME" property="ctpyName" />
+        <result column="CTPY_TYPE" property="ctpyType" />
+        <result column="CTPY_NATIONALITY" property="ctpyNationality" />
+        <result column="CTPY_IC_CODE" property="ctpyIcCode" />
+        <result column="CTPY_IC_TYPE" property="ctpyIcType" />
+        <result column="CTPY_IC_TYPE_MEMO" property="ctpyIcTypeMemo" />
+        <result column="CTPY_ACCT_ID" property="ctpyAcctId" />
+        <result column="CTPY_ACCT_TYPE" property="ctpyAcctType" />
+        <result column="TRADE_TYPE" property="tradeType" />
+        <result column="REPAYMENT_DATE" property="repaymentDate" />
+        <result column="LOAN_REPAYMENT_TYPE" property="loanRepaymentType" />
+        <result column="PRECEDING_TRADE_REFERENCE" property="precedingTradeReference" />
+        <result column="SUCCESSDING_TRADE_REFERENCE" property="successdingTradeReference" />
+        <result column="CNY_AMT" property="cnyAmt" />
+        <result column="CARD_TYPE" property="cardType" />
+        <result column="CARD_TYPE_MEMO" property="cardTypeMemo" />
+        <result column="CARD_NO" property="cardNo" />
+        <result column="REPAY_NO_TYPE" property="repayNoType" />
+        <result column="REPAY_NO" property="repayNo" />
+        <result column="NO_COUNTER_TYPE" property="noCounterType" />
+        <result column="NO_COUNTER_NO" property="noCounterNo" />
+        <result column="BANK_PAYINS_CODE" property="bankPayinsCode" />
+    </resultMap>
+
+    <select id="DTAQuery" resultMap="DTA">
+        select aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO , aml_datasource.DEPART_ID
+             , SEQ_NO, DEPART_NAME, DEPART_TYPE, DEPART_AREACODE, CLIENT_ID, RULE_CODE, RULE_TYPE, UNIT_NAME, UNIT_CODE
+             , RELATION_TYPE, REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE
+             , ORIG_CLIENT_ID, ORIG_TRADE_DATE, ORIG_RULE_CODE, PCODE, CLIENT_NAME, CLIENT_TYPE, CLIENT_IC_TYPE, CLIENT_IC_TYPE_MEMO
+             , CLIENT_IC_NO, CLIENT_NATIONALITY, PHONE, ADDRESS, OTHER_CONTACT, INDUSTRY_TYPE, REGISTERED_CAPITAL, REP_NAME
+             , REP_IC_TYPE, REP_IC_TYPE_MEMO, REP_IC_NO, AGENT_NAME, AGENT_IC_NO, AGENT_IC_TYPE, AGENT_IC_TYPE_MEMO, AGENT_NATIONALITY
+             , ACCT_ID, ACCT_TYPE, ACCT_OPEN_TIME, ACCT_CLOSE_TIME, PBOC_NUM_ACCT, TRADE_DATE, TRADE_TIME, VALUE_DATE, TRADE_VENUE_COUNTRY
+             , TRADE_VENUE_REGION, TRADE_MODE, DEBIT_CREDIT, TRADE_COUNTRY, TRADE_REGION, TRADE_CODE, FUND_USAGE, CURRENCY, AMT, DOLLAR_AMT
+             , CTPY_FI_CODE, CTPY_FI_PCODE, CTPY_FI_NAME, CTPY_FI_TYPE, CTPY_FI_COUNTRY, CTPY_FI_REGION_CODE, CTPY_NAME, CTPY_TYPE, CTPY_NATIONALITY
+             , CTPY_IC_CODE, CTPY_IC_TYPE, CTPY_IC_TYPE_MEMO, CTPY_ACCT_ID, CTPY_ACCT_TYPE, TRADE_TYPE, REPAYMENT_DATE, LOAN_REPAYMENT_TYPE
+             , PRECEDING_TRADE_REFERENCE, SUCCESSDING_TRADE_REFERENCE, CNY_AMT, CARD_TYPE, CARD_TYPE_MEMO, CARD_NO, REPAY_NO_TYPE, REPAY_NO
+             , NO_COUNTER_TYPE, NO_COUNTER_NO, BANK_PAYINS_CODE
+        from aml_datasource
+                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
     </select>
 </mapper>
