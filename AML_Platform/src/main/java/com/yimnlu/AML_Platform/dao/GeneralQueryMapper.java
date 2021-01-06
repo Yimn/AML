@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface GeneralQueryMapper extends BaseMapper<GeneralQuery> {
-    List<SuspectCommonQuery> SuspectCommonQuery();
-    List<SuspectCommonQuery> SuspectMonthQuery(@Param("WORKDATE") String WORKDATE);
+    List<AmlDTA> SuspectCommonQuery();
+    List<AmlDTA> SuspectMonthQuery(@Param("WORKDATE") String WORKDATE);
     List<AmlDTA> DTAQuery();
 }

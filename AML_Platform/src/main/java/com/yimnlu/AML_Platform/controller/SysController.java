@@ -28,22 +28,22 @@ public class SysController {
         Map map = new HashMap();
         map.put("username", username);
         map.put("password", password);
-        log.info(map+"");
+        log.info(map + "");
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
 
     @ResponseBody
     @ApiOperation(value = "console", notes = "console")
     @RequestMapping(value = "/console", method = RequestMethod.POST)
-    public ModelAndView webConsole(@RequestParam("console")String console, HttpServletRequest request){
+    public ModelAndView webConsole(@RequestParam("console") String console, HttpServletRequest request) {
         try {
             log.info(request.getParameter("console1"));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        log.info("Web console:"+console);
+        log.info("Web console:" + console);
         Map map = new HashMap();
-        map.put("Log","200");
+        map.put("Log", "200");
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
 }

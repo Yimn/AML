@@ -165,5 +165,6 @@
              , NO_COUNTER_TYPE, NO_COUNTER_NO, BANK_PAYINS_CODE
         from aml_datasource
                  inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+        order by aml_datasource.WORK_DATE DESC
     </select>
 </mapper>
