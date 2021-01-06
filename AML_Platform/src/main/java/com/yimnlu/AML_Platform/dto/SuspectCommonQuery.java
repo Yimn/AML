@@ -20,6 +20,7 @@ public class SuspectCommonQuery implements Serializable {
     private String CURRENCY;
     private String AMT;
     private String TRADE_VENUE_COUNTRY;
+    private String FUND_USAGE;
 
     public String getWORK_DATE() {
         return WORK_DATE;
@@ -116,6 +117,4 @@ public class SuspectCommonQuery implements Serializable {
     public void setFUND_USAGE(String FUND_USAGE) {
         this.FUND_USAGE = FUND_USAGE;
     }
-
-    private String FUND_USAGE;
 }

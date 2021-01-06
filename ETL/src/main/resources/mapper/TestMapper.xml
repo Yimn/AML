@@ -17,7 +17,8 @@
     </sql>
 
     <select id="findByName" resultMap="BaseResultMap">
-        SELECT * FROM "Test"
+        SELECT *
+        FROM "Test"
     </select>
 
 

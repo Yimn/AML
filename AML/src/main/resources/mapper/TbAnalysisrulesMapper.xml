@@ -20,11 +20,15 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        DEPART_ID, RULE_CODE, RULE_TYPE, RULE_NOTES, RULE_ANALYSE_METHOD, RULE_INDEX, FILLER1, FILLER3, FILLER2
+                DEPART_ID, RULE_CODE, RULE_TYPE, RULE_NOTES, RULE_ANALYSE_METHOD, RULE_INDEX, FILLER1, FILLER3, FILLER2
     </sql>
 
     <select id="selectAll" resultMap="BaseResultMap">
-        SELECT * from TB_ANALYSISRULES WHERE 1=1 AND DEPART_ID = #{DEPART_ID} ORDER BY RULE_CODE
+        SELECT *
+        from TB_ANALYSISRULES
+        WHERE 1 = 1
+          AND DEPART_ID = #{DEPART_ID}
+        ORDER BY RULE_CODE
     </select>
 
 </mapper>

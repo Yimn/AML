@@ -52,7 +52,26 @@
         from aml_datasource
                  inner join aml_analysisresult
                             on aml_analysisresult.ref_no = aml_datasource.ref_no
-                                and aml_datasource.WORK_DATE = #{WORK_DATE}
+                                and aml_datasource.WORK_DATE = #{WORKDATE}
+    </select>
+
+    <select id="SuspectListQuery" resultMap="suspectCommonQuery">
+        select aml_datasource.WORK_DATE
+             , aml_datasource.REF_NO
+             , SHADINESS_DESC
+             , DEBIT_CREDIT
+             , DEPART_NAME
+             , CLIENT_NAME
+             , ACCT_ID
+             , TRADE_DATE
+             , CURRENCY
+             , AMT
+             , TRADE_VENUE_COUNTRY
+             , FUND_USAGE
+        from aml_datasource
+                 inner join aml_analysisresult
+                            on aml_analysisresult.ref_no = aml_datasource.ref_no
+                                and aml_datasource.WORK_DATE = #{WORKDATE}
     </select>
 
 

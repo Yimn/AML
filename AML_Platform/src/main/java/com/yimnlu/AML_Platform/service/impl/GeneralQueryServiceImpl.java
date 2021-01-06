@@ -25,4 +25,9 @@ public class GeneralQueryServiceImpl extends ServiceImpl<GeneralQueryMapper, Gen
     public List<AmlDTA> SuspectMonthQuery(String WORKDATE) {
         return generalQueryMapper.SuspectMonthQuery(WORKDATE);
     }
+
+    @Override
+    public List<AmlDTA> SuspectListQuery(String WORKDATE, String DEPARTID) {
+        return generalQueryMapper.SuspectListQuery(WORKDATE,DEPARTID);
+    }
 }

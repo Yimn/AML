@@ -36,17 +36,24 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        BANK,
-        APPLICATION,GROUP_CODE,GROUP_NAME,META_VAL,META_NAME,CREATOR,CREATE_TIME,MOD_USER,MOD_DATE,ENABLE,REMARK,MOD_ABLE
+                BANK,
+                APPLICATION, GROUP_CODE, GROUP_NAME, META_VAL, META_NAME, CREATOR, CREATE_TIME, MOD_USER, MOD_DATE,
+                ENABLE, REMARK, MOD_ABLE
     </sql>
 
     <select id="getEnabled" resultMap="BaseResultMap">
-        SELECT * FROM TB_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+        SELECT *
+        FROM TB_DICT
+        WHERE ENABLE = 1
+        ORDER BY GROUP_CODE
     </select>
 
 
     <select id="getGROUP" resultMap="get_GROUP">
-        select DISTINCT GROUP_CODE,GROUP_NAME,META_VAL,META_NAME from TB_DICT WHERE ENABLE = 1 ORDER BY GROUP_CODE
+        select DISTINCT GROUP_CODE, GROUP_NAME, META_VAL, META_NAME
+        from TB_DICT
+        WHERE ENABLE = 1
+        ORDER BY GROUP_CODE
     </select>
 
 

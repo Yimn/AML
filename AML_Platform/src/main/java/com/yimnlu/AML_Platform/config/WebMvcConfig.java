@@ -12,12 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
-    private final String Allowed_Origin ="http://localhost";
-
-
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/", "classpath:/resources/",
             "classpath:/static/", "classpath:/public/"};
+    private final String Allowed_Origin = "http://localhost";
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -47,7 +45,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(HeaderInterceptor());
     }
 
-    private HandlerInterceptor HeaderInterceptor(){
+    private HandlerInterceptor HeaderInterceptor() {
         return new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
