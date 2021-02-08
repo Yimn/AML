@@ -9,6 +9,8 @@ public class ListQuery {
     String WORKDATE;
     @ApiModelProperty(value = "DEPARTID")
     String DEPARTID;
+    @ApiModelProperty(value = "REFNO")
+    String REFNO;
 
     public String getWORKDATE() {
         return WORKDATE;
@@ -26,11 +28,20 @@ public class ListQuery {
         this.DEPARTID = DEPARTID;
     }
 
+    public String getREFNO() {
+        return REFNO;
+    }
+
+    public void setREFNO(String REFNO) {
+        this.REFNO = REFNO;
+    }
+
     @Override
     public String toString() {
         return "ListQuery{" +
                 "WORKDATE='" + WORKDATE + '\'' +
                 ", DEPARTID='" + DEPARTID + '\'' +
+                ", REFNO='" + REFNO + '\'' +
                 '}';
     }
 }

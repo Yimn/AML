@@ -27,4 +27,11 @@ public class Startup {
         map.put("valid", pa);
         return new ModelAndView(new MappingJackson2JsonView(), map);
     }
+
+    @ResponseBody
+    @ApiOperation(value = "_nie", notes = "_nie")
+    @RequestMapping(value = "_nie", method = RequestMethod.POST)
+    public void _nie() {
+        log.info("Ready to  init analysisresult");
+    }
 }

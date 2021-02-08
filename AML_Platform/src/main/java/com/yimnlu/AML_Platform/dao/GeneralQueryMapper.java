@@ -14,7 +14,11 @@ public interface GeneralQueryMapper extends BaseMapper<GeneralQuery> {
 
     List<AmlDTA> SuspectMonthQuery(@Param("WORKDATE") String WORKDATE);
 
-    List<AmlDTA> SuspectListQuery(@Param("WORKDATE") String WORKDATE, @Param("DEPARTID") String DEPARTID);
+    List<AmlDTA> SuspectListQuery(@Param("WORKDATE") String WORKDATE, @Param("DEPARTID") String DEPARTID, @Param("REFNO") String REFNO);
 
     List<AmlDTA> DTAQuery();
+
+    List<AmlDTA> DTAQuery(@Param("WORKDATE") String WORKDATE, @Param("DEPARTID") String DEPARTID, @Param("REFNO") String REFNO);
+
+    List<AmlDTA> Suspect2Ref(@Param("refNo") String refNo);
 }

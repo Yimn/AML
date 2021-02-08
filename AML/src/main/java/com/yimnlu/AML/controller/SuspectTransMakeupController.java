@@ -393,6 +393,42 @@ public class SuspectTransMakeupController {
         }
     }
 
+
+    @ResponseBody
+    @ApiOperation(value = "_nie", notes = "_nie")
+    @GetMapping("/_nie")
+    public void _nie() {
+        log.info("Ready to  init analysisresult");
+        int WORKDATE = 20190715;
+        String DEPARTID = DEFAULT_DEPART_ID;
+        for (int j = 0; j < 12; j++) {
+            for (int i = 0; i < 30; i++) {
+                WORKDATE = WORKDATE + i;
+                log.info("---------------------Ready to batch rule_0901 to rule_0904--------------" + WORKDATE + "------------" + DEPARTID);
+                log.info("Executing R0001>>>>>>>>>>>>>");
+                rule_R0001(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0002>>>>>>>>>>>>>");
+                rule_R0002(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0003>>>>>>>>>>>>>");
+                rule_R0003(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0004>>>>>>>>>>>>>");
+                rule_R0004(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0005>>>>>>>>>>>>>");
+                rule_R0005(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0006>>>>>>>>>>>>>");
+                rule_R0006(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0007>>>>>>>>>>>>>");
+                rule_R0007(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0008>>>>>>>>>>>>>");
+                rule_R0008(DEPARTID, String.valueOf(WORKDATE));
+                log.info("Executing R0009>>>>>>>>>>>>>");
+                rule_R0009(DEPARTID, String.valueOf(WORKDATE));
+                log.info("---------------------------------Batch finished-------------------------------");
+            }
+            WORKDATE = WORKDATE +70;
+        }
+    }
+
     @ResponseBody
     @ApiOperation(value = "批量运行R0001_R0009", notes = "批量运行R0001_R0009")
     @GetMapping("/Batch/R000X")

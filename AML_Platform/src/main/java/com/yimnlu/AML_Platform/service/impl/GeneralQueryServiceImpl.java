@@ -27,7 +27,17 @@ public class GeneralQueryServiceImpl extends ServiceImpl<GeneralQueryMapper, Gen
     }
 
     @Override
-    public List<AmlDTA> SuspectListQuery(String WORKDATE, String DEPARTID) {
-        return generalQueryMapper.SuspectListQuery(WORKDATE,DEPARTID);
+    public List<AmlDTA> SuspectListQuery(String WORKDATE, String DEPARTID,String REFNO) {
+        return generalQueryMapper.SuspectListQuery(WORKDATE,DEPARTID,REFNO);
+    }
+
+    @Override
+    public List<AmlDTA> DTAQuery(String WORKDATE, String DEPARTID,String REFNO) {
+        return generalQueryMapper.DTAQuery(WORKDATE, DEPARTID,REFNO);
+    }
+
+    @Override
+    public List<AmlDTA> Suspect2Ref(String refNo) {
+        return generalQueryMapper.Suspect2Ref(refNo);
     }
 }
