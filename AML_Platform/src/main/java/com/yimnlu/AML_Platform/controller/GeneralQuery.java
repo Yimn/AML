@@ -1,6 +1,9 @@
 package com.yimnlu.AML_Platform.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.yimnlu.AML_Platform.dao.CommonAnalysisQueryMapper;
 import com.yimnlu.AML_Platform.entity.AmlDTA;
+import com.yimnlu.AML_Platform.entity.CountryCode;
 import com.yimnlu.AML_Platform.executor.AmlDTA.dtaStorage.dtaStorage;
 import com.yimnlu.AML_Platform.executor.staticReturn.TodayWorkDate;
 import com.yimnlu.AML_Platform.model.ListQuery;
@@ -12,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static com.yimnlu.AML_Platform.executor.DICT.DEFAULT_DEPART_ID;
 import static com.yimnlu.AML_Platform.executor.DICT.DEFAULT_WORKDATE;
@@ -25,13 +29,16 @@ public class GeneralQuery {
     @Resource
     GeneralQueryService generalQueryService;
 
+    @Resource
+    CommonAnalysisQueryMapper commonAnalysisQueryMapper;
+
     @PostConstruct
     @ResponseBody
     @ApiOperation(value = "updateDTA", notes = "updateDTA")
     @RequestMapping(value = "/updateDTA", method = RequestMethod.GET)
     public List<AmlDTA> updateDTA() {
         dtaStorage.amlDTAList = generalQueryService.SuspectCommonQuery();
-        log.info("AmlDTA updated");
+        log.info("AmlDTA updated at " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         return dtaStorage.amlDTAList;
     }
 
@@ -80,5 +87,46 @@ public class GeneralQuery {
     @RequestMapping(value = "/DTAQuery", method = RequestMethod.GET)
     public List<AmlDTA> DTAQuery() {
         return updateDTA();
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "T1argetMonthQuery", notes = "TargetMonthQuery")
+    @RequestMapping(value = "/T1argetMonthQuery", method = RequestMethod.GET)
+    public JSONObject T1argetMonthQuery() {
+        JSONObject json =new JSONObject(true);
+        Map<String , Integer> map = new HashMap<String, Integer>();
+        List<AmlDTA> list = updateDTA();
+        for (int i =0; i<31;i++){
+            String handled_i;
+            if (i<10)
+                handled_i = "2019110"+String.valueOf(i+1);
+            else
+                handled_i = "201911"+String.valueOf(i+1);
+            list  = generalQueryService.DTAQuery(handled_i,null,null);
+            map.put(handled_i,list.size());
+        }
+        log.info(json.toJSONString());
+        return json;
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "TargetMonthQuery", notes = "TargetMonthQuery")
+    @RequestMapping(value = "/TargetMonthQuery", method = RequestMethod.GET)
+    public JSONObject TargetMonthQuery() {
+        JSONObject json =new JSONObject(true);
+        List<AmlDTA> list = commonAnalysisQueryMapper.DESCbyCountry(null,"201911%");
+        List<CountryCode> list1 = commonAnalysisQueryMapper.SelectCountryCode("201911%");
+        List<AmlDTA> temp = new ArrayList<>();
+        log.info("Size:"+list.size()+" "+list1.size());
+        for (int i =0; i <list.size(); i++){
+            for (int j =0; j < list1.size();j++){
+                if (list1.get(j).getTRADE_VENUE_COUNTRY().equals(list.get(i).getTradeCountry())){
+                    //log.info("reach "+ list1.get(j).getTRADE_VENUE_COUNTRY()+" "+list.get(i));
+                    json.put(list1.get(j).getTRADE_VENUE_COUNTRY(),list.get(i));
+                }
+            }
+        }
+        log.info(json.toJSONString());
+        return json;
     }
 }

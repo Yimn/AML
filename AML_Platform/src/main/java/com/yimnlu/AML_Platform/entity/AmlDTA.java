@@ -339,7 +339,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setClientIcNo(String clientIcNo) {
-        this.clientIcNo = clientIcNo;
+        this.clientIcNo = "Data Desensitized";
     }
 
     public String getClientNationality() {
@@ -419,7 +419,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setRepIcNo(String repIcNo) {
-        this.repIcNo = repIcNo;
+        this.repIcNo = "Data Desensitized";
     }
 
     public String getAgentName() {
@@ -435,7 +435,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setAgentIcNo(String agentIcNo) {
-        this.agentIcNo = agentIcNo;
+        this.agentIcNo = "Data Desensitized";
     }
 
     public String getAgentIcType() {
