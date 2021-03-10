@@ -1,6 +1,8 @@
 import com.yimnlu.AML_Platform.AMLPlatformApplication;
+import com.yimnlu.AML_Platform.controller.AML_DICTController;
 import com.yimnlu.AML_Platform.controller.GeneralQuery;
 import com.yimnlu.AML_Platform.dao.CommonAnalysisQueryMapper;
+import com.yimnlu.AML_Platform.dto.AML_DICT_GROUP;
 import com.yimnlu.AML_Platform.entity.AmlDTA;
 import com.yimnlu.AML_Platform.entity.CountryCode;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -59,5 +60,12 @@ public class test{
                         }
                 }
                //log.info(""+commonAnalysisQueryMapper.DESCbyCountry(null,"201911%"));
+        }
+
+
+        @Test
+        public void run4(){
+                List<AML_DICT_GROUP> aml_dict_group = AML_DICTController._LIST_AML_DICT_.stream().filter(aml_dict_group1 -> aml_dict_group1.getMETA_VAL().equals("610001")).collect(Collectors.toList());
+                log.info(aml_dict_group.toString());
         }
 }

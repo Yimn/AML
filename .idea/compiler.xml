@@ -9,15 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AML" />
         <module name="ETL" />
+        <module name="AML_Genrerator" />
         <module name="AML_Platform" />
-        <module name="AML_Gererator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AML" target="1.8" />
       <module name="AML_Genrerator" target="11" />
-      <module name="AML_Gererator" target="11" />
-      <module name="AML_Platform" target="1.8" />
+      <module name="AML_Platform" target="11" />
       <module name="CodeGenerator" target="1.5" />
       <module name="ETL" target="1.5" />
     </bytecodeTargetLevel>

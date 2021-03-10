@@ -1,8 +1,10 @@
 package com.yimnlu.AML.controller;
 
 
+import com.yimnlu.AML.dao.AmlStatusMapper;
 import com.yimnlu.AML.dao.suspectTransMakeupMapper;
 import com.yimnlu.AML.dto.ERR_CODE_SET;
+import com.yimnlu.AML.entity.AmlStatus;
 import com.yimnlu.AML.executor.staticReturn.TodayWorkDate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 import static com.yimnlu.AML.executor.DICT.*;
+import static com.yimnlu.AML.executor.staticReturn.TimeUtils.getDaysByYearMonth;
 
 @RestController
 @CrossOrigin
@@ -431,6 +434,8 @@ public class SuspectTransMakeupController {
             WORKDATE = WORKDATE +70;
         }
     }
+    @Resource
+    AmlStatusMapper amlStatusMapper;
 
     @ResponseBody
     @ApiOperation(value = "批量运行R0001_R0009", notes = "批量运行R0001_R0009")
@@ -465,23 +470,21 @@ public class SuspectTransMakeupController {
     @ApiOperation(value = "按系统预设分析2019年9月到2019年12月的数据", notes = "按系统预设分析2019年9月到2019年12月的数据")
     @GetMapping("/Batch")
     public void Batch() {
-        Date a = new Date(119,8,1);
-        Date b = new Date(119,9,1);
-        Date c = new Date(119,10,1);
-        dayReport(a);
-        dayReport(b);
-        dayReport(c);
-    }
-
-    public static int getDaysByYearMonth(int year, int month) {
-
-        Calendar a = Calendar.getInstance();
-        a.set(Calendar.YEAR, year);
-        a.set(Calendar.MONTH, month - 1);
-        a.set(Calendar.DATE, 1);
-        a.roll(Calendar.DATE, -1);
-        int maxDate = a.get(Calendar.DATE);
-        return maxDate;
+        try {
+            AmlStatus amlStatus  = amlStatusMapper.ReachStatus("SuspectTransMakeup_Batch");
+            if (amlStatus.getStatus()==0){
+                amlStatusMapper.UpdateFuncStatus(1,"SuspectTransMakeup_Batch");
+                Date a = new Date(119, 8, 1);
+                Date b = new Date(119, 9, 1);
+                Date c = new Date(119, 10, 1);
+                dayReport(a);
+                dayReport(b);
+                dayReport(c);
+                amlStatusMapper.UpdateFuncStatus(0,"SuspectTransMakeup_Batch");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void dayReport(Date month) {
@@ -497,7 +500,13 @@ public class SuspectTransMakeupController {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             String df = simpleDateFormat.format(d);
             //log.info(df);
-            Batch_R000X(DEFAULT_DEPART_ID,df);
+            try {
+                AmlStatus amlStatus = amlStatusMapper.ReachStatus("SuspectTransMakeup_Batch");
+                if (amlStatus.getStatus()==1)
+                    Batch_R000X(DEFAULT_DEPART_ID,df);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

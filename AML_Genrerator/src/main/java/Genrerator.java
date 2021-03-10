@@ -19,7 +19,7 @@ class Generator {
 //        String[] tableNames = new String[]{"user", "user_role", "user_rank", "passage",
 //                "passage_type", "activity", "one_column", "file", "club", "club_type",
 //                "student", "activity_type", "file_type"};
-        String[] tableNames = new String[]{"AML_ANALYSISRESULT"};
+        String[] tableNames = new String[]{"AML_STATUS"};
         Generator generator = new Generator();
         generator.generateByTables(serviceNameStartWithI, packageName, tableNames);
     }
@@ -31,11 +31,11 @@ class Generator {
      * @author luyimin
      */
     private static DataSourceConfig getDataSourceConfig() {
-        String dbUrl = "jdbc:sqlserver://192.168.21.58:1433;DatabaseName=AML";
+        String dbUrl = "jdbc:sqlserver://localhost:1433;DatabaseName=AML_B";
         return new DataSourceConfig().setDbType(DbType.SQL_SERVER)
                 .setUrl(dbUrl)
                 .setUsername("sa")
-                .setPassword("Ff17011120")
+                .setPassword("f17011120")
                 .setDriverName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
     }
 
@@ -102,7 +102,7 @@ class Generator {
      * @author luyimin
      */
     private GlobalConfig getGlobalConfig(boolean serviceNameStartWithI) {
-        String save_projectName = "association-generator";
+        String save_projectName = "AML_Genrerator";
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig
                 .setBaseColumnList(true)

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AML/AML.iml" filepath="$PROJECT_DIR$/AML/AML.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AML_Genrerator/AML_Gererator.iml" filepath="$PROJECT_DIR$/AML_Genrerator/AML_Gererator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AML_Genrerator/AML_Genrerator.iml" filepath="$PROJECT_DIR$/AML_Genrerator/AML_Genrerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/AML_Platform/AML_Platform.iml" filepath="$PROJECT_DIR$/AML_Platform/AML_Platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/ETL/ETL.iml" filepath="$PROJECT_DIR$/ETL/ETL.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SSM AML(ETL).iml" filepath="$PROJECT_DIR$/.idea/SSM AML(ETL).iml" />
