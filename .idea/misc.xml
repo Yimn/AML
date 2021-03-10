@@ -6,8 +6,10 @@
         <option value="$PROJECT_DIR$/AML/pom.xml" />
         <option value="$PROJECT_DIR$/ETL/pom.xml" />
         <option value="$PROJECT_DIR$/AML_Platform/pom.xml" />
+        <option value="$PROJECT_DIR$/AML_Gererator/pom.xml" />
+        <option value="$PROJECT_DIR$/AML_Genrerator/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

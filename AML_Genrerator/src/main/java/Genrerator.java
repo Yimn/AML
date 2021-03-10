@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 /**
  * Created by luyimin
  */
-public class Generator {
+class Generator {
     public static void main(String[] args) {
         //指定包名
         String packageName = "com.yimnlu.AML";
