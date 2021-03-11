@@ -76,7 +76,7 @@
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.2.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-ui:2.9.2" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.7" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.31" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: com.oracle.database.jdbc:ojdbc10:19.7.0.0" level="project" />
@@ -133,7 +133,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.2.10.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.3.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.5.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.3.25.RELEASE" level="project" />
