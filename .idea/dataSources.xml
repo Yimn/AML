@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="AML_B@localhost" uuid="9db1c202-3bae-41f4-8ba9-73bf123480ba">
+    <data-source source="LOCAL" name="AML@localhost" uuid="9db1c202-3bae-41f4-8ba9-73bf123480ba">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://localhost;database=AML_B</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost;database=AML</jdbc-url>
     </data-source>
   </component>
 </project>
