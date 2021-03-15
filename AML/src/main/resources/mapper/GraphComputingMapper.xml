@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimnlu.AML.dao.GraphComputingMapper">
+
+    <!-- 开启二级缓存 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+<resultMap id="BaseDetail" type="com.yimnlu.AML.dto.ACCTBaseDetail">
+    <result column="ACCT_ID" property="ACCT_ID"/>
+    <result column="CTPY_ACCT_ID" property="CTPY_ACCT_ID"/>
+</resultMap>
+    <!-- 通用查询映射结果 -->
+<select id="d1" resultMap="BaseDetail">
+    select DISTINCT AML_DATASOURCE.ACCT_ID,AML_DATASOURCE.CTPY_ACCT_ID
+    from aml_datasource
+             inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+</select>
+    <select id="d2" resultMap="BaseDetail">
+    select DISTINCT AML_DATASOURCE.ACCT_ID,AML_DATASOURCE.CTPY_ACCT_ID
+    from aml_datasource
+</select>
+
+</mapper>
