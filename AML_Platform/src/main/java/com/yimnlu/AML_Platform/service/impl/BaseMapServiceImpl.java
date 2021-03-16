@@ -23,6 +23,7 @@ import static com.yimnlu.AML_Platform.executor.DICT.DEFAULT_DEPART_ID;
  * @author yimnlu
  * @since 2020-11-21
  */
+@Deprecated
 @Slf4j
 @Service
 public class BaseMapServiceImpl extends ServiceImpl<BaseMapMapper, BaseMap> implements BaseMapService {

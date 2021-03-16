@@ -17,6 +17,7 @@ import static com.yimnlu.AML_Platform.executor.DICT.DEFAULT_DEPART_ID;
  * @author yimnlu
  * @since 2020-11-21
  */
+@Deprecated
 public interface BaseMapService extends IService<BaseMap> {
     HashMap<String, location> init_map(@RequestParam(value = "DEPARTID", defaultValue = DEFAULT_DEPART_ID) String DEPARTID);
 }

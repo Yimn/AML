@@ -10,8 +10,8 @@
         <!--SpringBoot版本-->
         <version>2.3.5.RELEASE</version>
     </parent>
-    <groupId>org.YimnLu.AML_Platform</groupId>
-    <artifactId>AML_Platform</artifactId>
+    <groupId>org.YimnLu.AML</groupId>
+    <artifactId>AML</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>

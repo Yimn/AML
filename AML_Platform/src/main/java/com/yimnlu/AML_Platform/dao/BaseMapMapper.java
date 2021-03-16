@@ -15,6 +15,7 @@ import java.util.List;
  * @author yimnlu
  * @since 2020-11-21
  */
+@Deprecated
 @Mapper
 public interface BaseMapMapper extends BaseMapper<BaseMap> {
     List<BaseMap> _F_BASEMAP_LOCATION_(@Param("DEPARTID") String DEPARTID);
