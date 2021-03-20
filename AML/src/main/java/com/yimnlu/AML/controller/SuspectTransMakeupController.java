@@ -29,6 +29,8 @@ import static com.yimnlu.AML.executor.staticReturn.TimeUtils.getDaysByYearMonth;
 public class SuspectTransMakeupController {
     @Resource
     suspectTransMakeupMapper stm;
+    @Resource
+    AmlStatusMapper amlStatusMapper;
 
     @ResponseBody
     @ApiOperation(value = "短期内资金分散转入、集中转出或者集中转入、分散转出，与客户身份、财务状况、经营业务明显不符", notes = "短期内资金分散转入、集中转出或者集中转入、分散转出，与客户身份、财务状况、经营业务明显不符")
@@ -399,7 +401,6 @@ public class SuspectTransMakeupController {
         }
     }
 
-
     @ResponseBody
     @ApiOperation(value = "_nie", notes = "_nie")
     @GetMapping("/_nie")
@@ -431,11 +432,9 @@ public class SuspectTransMakeupController {
                 rule_R0009(DEPARTID, String.valueOf(WORKDATE));
                 log.info("---------------------------------Batch finished-------------------------------");
             }
-            WORKDATE = WORKDATE +70;
+            WORKDATE = WORKDATE + 70;
         }
     }
-    @Resource
-    AmlStatusMapper amlStatusMapper;
 
     @ResponseBody
     @ApiOperation(value = "批量运行R0001_R0009", notes = "批量运行R0001_R0009")
@@ -471,16 +470,16 @@ public class SuspectTransMakeupController {
     @GetMapping("/Batch")
     public void Batch() {
         try {
-            AmlStatus amlStatus  = amlStatusMapper.ReachStatus("SuspectTransMakeup_Batch");
-            if (amlStatus.getStatus()==0){
-                amlStatusMapper.UpdateFuncStatus(1,"SuspectTransMakeup_Batch");
+            AmlStatus amlStatus = amlStatusMapper.ReachStatus("SuspectTransMakeup_Batch");
+            if (amlStatus.getStatus() == 0) {
+                amlStatusMapper.UpdateFuncStatus(1, "SuspectTransMakeup_Batch");
                 Date a = new Date(119, 8, 1);
                 Date b = new Date(119, 9, 1);
                 Date c = new Date(119, 10, 1);
                 dayReport(a);
                 dayReport(b);
                 dayReport(c);
-                amlStatusMapper.UpdateFuncStatus(0,"SuspectTransMakeup_Batch");
+                amlStatusMapper.UpdateFuncStatus(0, "SuspectTransMakeup_Batch");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -502,8 +501,8 @@ public class SuspectTransMakeupController {
             //log.info(df);
             try {
                 AmlStatus amlStatus = amlStatusMapper.ReachStatus("SuspectTransMakeup_Batch");
-                if (amlStatus.getStatus()==1)
-                    Batch_R000X(DEFAULT_DEPART_ID,df);
+                if (amlStatus.getStatus() == 1)
+                    Batch_R000X(DEFAULT_DEPART_ID, df);
             } catch (Exception e) {
                 e.printStackTrace();
             }

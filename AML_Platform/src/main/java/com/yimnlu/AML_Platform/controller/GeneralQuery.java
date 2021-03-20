@@ -55,7 +55,7 @@ public class GeneralQuery {
     @RequestMapping(value = "/SuspectMonthQuery", method = RequestMethod.GET)
     public List<AmlDTA> SuspectMonthQuery(@RequestParam(value = "WORKDATE", defaultValue = DEFAULT_WORKDATE) String WORKDATE) {
         log.info("SuspectMonthQuery-> " + WORKDATE);
-        return generalQueryService.DTAQuery(WORKDATE, null,null);
+        return generalQueryService.DTAQuery(WORKDATE, null, null);
     }
 
     @ResponseBody
@@ -70,14 +70,14 @@ public class GeneralQuery {
             WORKDATE = TodayWorkDate.WORKDATE();
         if (DEPARTID.equals(DEFAULT_WORKDATE))
             DEPARTID = DEFAULT_DEPART_ID;
-        log.info("SuspectListQuery->  "+WORKDATE+"  "+DEPARTID+""+REFNO);
-        return generalQueryService.DTAQuery(WORKDATE, DEPARTID,REFNO);
+        log.info("SuspectListQuery->  " + WORKDATE + "  " + DEPARTID + "" + REFNO);
+        return generalQueryService.DTAQuery(WORKDATE, DEPARTID, REFNO);
     }
 
     @ResponseBody
     @ApiOperation(value = "Suspect2Ref", notes = "Suspect2Ref")
     @RequestMapping(value = "/Suspect2Ref", method = RequestMethod.GET)
-    public List<AmlDTA> Suspect2Ref(@RequestParam(value = "refNo" ) String refNo) {
+    public List<AmlDTA> Suspect2Ref(@RequestParam(value = "refNo") String refNo) {
         log.info("Suspect2Ref-> " + refNo);
         return generalQueryService.Suspect2Ref(refNo);
     }
@@ -93,17 +93,17 @@ public class GeneralQuery {
     @ApiOperation(value = "T1argetMonthQuery", notes = "TargetMonthQuery")
     @RequestMapping(value = "/T1argetMonthQuery", method = RequestMethod.GET)
     public JSONObject T1argetMonthQuery() {
-        JSONObject json =new JSONObject(true);
-        Map<String , Integer> map = new HashMap<String, Integer>();
+        JSONObject json = new JSONObject(true);
+        Map<String, Integer> map = new HashMap<String, Integer>();
         List<AmlDTA> list = updateDTA();
-        for (int i =0; i<31;i++){
+        for (int i = 0; i < 31; i++) {
             String handled_i;
-            if (i<10)
-                handled_i = "2019110"+String.valueOf(i+1);
+            if (i < 10)
+                handled_i = "2019110" + String.valueOf(i + 1);
             else
-                handled_i = "201911"+String.valueOf(i+1);
-            list  = generalQueryService.DTAQuery(handled_i,null,null);
-            map.put(handled_i,list.size());
+                handled_i = "201911" + String.valueOf(i + 1);
+            list = generalQueryService.DTAQuery(handled_i, null, null);
+            map.put(handled_i, list.size());
         }
         log.info(json.toJSONString());
         return json;
@@ -113,16 +113,16 @@ public class GeneralQuery {
     @ApiOperation(value = "TargetMonthQuery", notes = "TargetMonthQuery")
     @RequestMapping(value = "/TargetMonthQuery", method = RequestMethod.GET)
     public JSONObject TargetMonthQuery() {
-        JSONObject json =new JSONObject(true);
-        List<AmlDTA> list = commonAnalysisQueryMapper.DESCbyCountry(null,"201911%");
+        JSONObject json = new JSONObject(true);
+        List<AmlDTA> list = commonAnalysisQueryMapper.DESCbyCountry(null, "201911%");
         List<CountryCode> list1 = commonAnalysisQueryMapper.SelectCountryCode("201911%");
         List<AmlDTA> temp = new ArrayList<>();
-        log.info("Size:"+list.size()+" "+list1.size());
-        for (int i =0; i <list.size(); i++){
-            for (int j =0; j < list1.size();j++){
-                if (list1.get(j).getTRADE_VENUE_COUNTRY().equals(list.get(i).getTradeCountry())){
+        log.info("Size:" + list.size() + " " + list1.size());
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list1.size(); j++) {
+                if (list1.get(j).getTRADE_VENUE_COUNTRY().equals(list.get(i).getTradeCountry())) {
                     //log.info("reach "+ list1.get(j).getTRADE_VENUE_COUNTRY()+" "+list.get(i));
-                    json.put(list1.get(j).getTRADE_VENUE_COUNTRY(),list.get(i));
+                    json.put(list1.get(j).getTRADE_VENUE_COUNTRY(), list.get(i));
                 }
             }
         }

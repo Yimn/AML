@@ -1,14 +1,10 @@
 package com.yimnlu.AML_Platform.entity;
 
-import com.yimnlu.AML_Platform.controller.AML_DICTController;
 import com.yimnlu.AML_Platform.dto.AML_DICT_GROUP;
-import com.yimnlu.AML_Platform.executor.DICT;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static com.yimnlu.AML_Platform.controller.AML_DICTController._LIST_AML_DICT_;
 
@@ -163,7 +159,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setDepartName(String departName) {
-        this.departName = departName;
+        this.departName = "Data Desensitized";
     }
 
     public String getDepartType() {
@@ -315,7 +311,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setClientName(String clientName) {
-        this.clientName = clientName;
+        this.clientName = "Data Desensitized";
     }
 
     public String getClientType() {
@@ -336,7 +332,7 @@ public class AmlDTA implements Serializable {
 
         Optional<AML_DICT_GROUP> aml_dict_group = _LIST_AML_DICT_.stream().filter(aml_dict_group1 -> aml_dict_group1.getMETA_VAL().equals(clientIcType)).findFirst();
 
-        if (!aml_dict_group.isEmpty()){
+        if (!aml_dict_group.isEmpty()) {
             this.clientIcType = aml_dict_group.get().getMETA_NAME();
         }
     }
@@ -378,7 +374,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = "Data Desensitized";
     }
 
     public String getOtherContact() {
@@ -410,7 +406,7 @@ public class AmlDTA implements Serializable {
     }
 
     public void setRepName(String repName) {
-        this.repName = repName;
+        this.repName = "Data Desensitized";
     }
 
     public String getRepIcType() {
@@ -493,7 +489,7 @@ public class AmlDTA implements Serializable {
         this.acctType = acctType;
         Optional<AML_DICT_GROUP> aml_dict_group = _LIST_AML_DICT_.stream().filter(aml_dict_group1 -> aml_dict_group1.getMETA_VAL().equals(acctType)).findFirst();
         if (!aml_dict_group.isEmpty())
-            this.acctType=aml_dict_group.get().getMETA_NAME();
+            this.acctType = aml_dict_group.get().getMETA_NAME();
     }
 
     public String getAcctOpenTime() {
@@ -568,7 +564,7 @@ public class AmlDTA implements Serializable {
         this.tradeMode = tradeMode;
         Optional<AML_DICT_GROUP> aml_dict_group = _LIST_AML_DICT_.stream().filter(aml_dict_group1 -> aml_dict_group1.getMETA_VAL().equals(tradeMode)).findFirst();
         if (!aml_dict_group.isEmpty())
-            this.tradeMode=aml_dict_group.get().getMETA_NAME();
+            this.tradeMode = aml_dict_group.get().getMETA_NAME();
     }
 
     public String getDebitCredit() {

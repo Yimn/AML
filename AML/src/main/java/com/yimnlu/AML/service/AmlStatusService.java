@@ -1,11 +1,11 @@
 package com.yimnlu.AML.service;
 
-import com.yimnlu.AML.entity.AmlStatus;
 import com.baomidou.mybatisplus.service.IService;
+import com.yimnlu.AML.entity.AmlStatus;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author luyimin

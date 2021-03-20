@@ -10,6 +10,8 @@ import java.util.List;
 @Mapper
 public interface GraphComputingMapper extends BaseMapper<ACCTBaseDetail> {
     List<ACCTBaseDetail> d1();
+
     List<ACCTBaseDetail> d2();
+
     List<AmlDTA> QueryByAcctID(String ID);
 }

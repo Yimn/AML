@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author luyimin
@@ -46,9 +46,9 @@ public class AmlStatus implements Serializable {
     @Override
     public String toString() {
         return "AmlStatus{" +
-        "id=" + id +
-        ", funcName=" + funcName +
-        ", status=" + status +
-        "}";
+                "id=" + id +
+                ", funcName=" + funcName +
+                ", status=" + status +
+                "}";
     }
 }

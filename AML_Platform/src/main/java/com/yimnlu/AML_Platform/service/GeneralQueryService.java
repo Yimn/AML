@@ -9,8 +9,12 @@ import java.util.List;
 
 public interface GeneralQueryService extends IService<GeneralQuery> {
     List<AmlDTA> SuspectCommonQuery();
+
     List<AmlDTA> SuspectMonthQuery(String WORKDATE);
-    List<AmlDTA> SuspectListQuery(String WORKDATE,String DEPARTID,String REFNO);
+
+    List<AmlDTA> SuspectListQuery(String WORKDATE, String DEPARTID, String REFNO);
+
     List<AmlDTA> DTAQuery(@Param("WORKDATE") String WORKDATE, @Param("DEPARTID") String DEPARTID, @Param("DEPARTID") String REFNO);
+
     List<AmlDTA> Suspect2Ref(@Param("refNo") String refNo);
 }

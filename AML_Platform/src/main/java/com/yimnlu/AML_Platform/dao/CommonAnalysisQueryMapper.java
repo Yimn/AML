@@ -10,5 +10,6 @@ import java.util.List;
 @Mapper
 public interface CommonAnalysisQueryMapper extends BaseMapper {
     List<CountryCode> SelectCountryCode(String WORK_DATE);
-    List<AmlDTA> DESCbyCountry(String TRADE_COUNTRY,String WORK_DATE);
+
+    List<AmlDTA> DESCbyCountry(String TRADE_COUNTRY, String WORK_DATE);
 }

@@ -7,9 +7,9 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yimnlu.AML.entity.AmlStatus">
-        <result column="ID" property="id" />
-        <result column="FUNC_NAME" property="funcName" />
-        <result column="STATUS" property="status" />
+        <result column="ID" property="id"/>
+        <result column="FUNC_NAME" property="funcName"/>
+        <result column="STATUS" property="status"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

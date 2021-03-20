@@ -27,6 +27,8 @@ import static com.yimnlu.AML.executor.staticReturn.TimeUtils.getDaysByYearMonth;
 public class HugeTransMakeupController {
     @Resource
     hugeTransMakeupMapper hugeTransMakeupmapper;
+    @Resource
+    AmlStatusMapper amlStatusMapper;
 
     @ApiOperation(value = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。", notes = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。")
     @GetMapping("/rule_0901")
@@ -107,9 +109,6 @@ public class HugeTransMakeupController {
             e.printStackTrace();
         }
     }
-
-    @Resource
-    AmlStatusMapper amlStatusMapper;
 
     @ResponseBody
     @ApiOperation(value = "批量运行090X", notes = "批量运行090X")

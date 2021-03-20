@@ -2,7 +2,6 @@ package com.yimnlu.AML_Platform.controller;
 
 
 import com.yimnlu.AML_Platform.dto.AML_DICT_GROUP;
-import com.yimnlu.AML_Platform.entity.AML_Dict;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

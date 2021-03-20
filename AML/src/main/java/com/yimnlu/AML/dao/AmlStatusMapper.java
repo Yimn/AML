@@ -1,14 +1,14 @@
 package com.yimnlu.AML.dao;
 
-import com.yimnlu.AML.entity.AmlStatus;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.yimnlu.AML.entity.AmlStatus;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author luyimin
@@ -17,7 +17,10 @@ import java.util.List;
 @Mapper
 public interface AmlStatusMapper extends BaseMapper<AmlStatus> {
     void InitStatus();
+
     AmlStatus ReachStatus(String FUNC_NAME);
+
     List<AmlStatus> ReachAllStatus();
-    void UpdateFuncStatus(int STATUS,String FUNC_NAME);
+
+    void UpdateFuncStatus(int STATUS, String FUNC_NAME);
 }

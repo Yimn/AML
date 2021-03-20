@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class CountryCode implements Serializable {
     private static final long serialVersionUID = 1L;
+    private String TRADE_VENUE_COUNTRY;
 
     public String getTRADE_VENUE_COUNTRY() {
         return TRADE_VENUE_COUNTRY;
@@ -12,6 +13,4 @@ public class CountryCode implements Serializable {
     public void setTRADE_VENUE_COUNTRY(String TRADE_VENUE_COUNTRY) {
         this.TRADE_VENUE_COUNTRY = TRADE_VENUE_COUNTRY;
     }
-
-    private String TRADE_VENUE_COUNTRY;
 }

@@ -9,8 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +17,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author luyimin
@@ -46,7 +44,7 @@ public class AmlStatusController {
     @GetMapping("/Check_Status")
     public Integer Check_Status(String FUNC) {
         AmlStatus amlStatus = amlStatusMapper.ReachStatus(FUNC);
-        switch (amlStatus.getStatus()){
+        switch (amlStatus.getStatus()) {
             case 1:
                 return null;
             default:
@@ -58,8 +56,8 @@ public class AmlStatusController {
     @GetMapping("/Check_Status_Default")
     public Number Check_Status() {
         List<AmlStatus> list = amlStatusMapper.ReachAllStatus();
-        for (AmlStatus amlStatus: list){
-            if (amlStatus.getStatus()==0)
+        for (AmlStatus amlStatus : list) {
+            if (amlStatus.getStatus() == 0)
                 return amlStatus.getStatus();
         }
         return null;
@@ -67,9 +65,9 @@ public class AmlStatusController {
 
     @ApiOperation(value = "Make_Status", notes = "Make_Status")
     @GetMapping("/Make_Status")
-    public void Make_Status(int STATUS,String FUNC_NAME) {
-        log.info(FUNC_NAME+" will be set to "+STATUS);
-        amlStatusMapper.UpdateFuncStatus(STATUS,FUNC_NAME);
+    public void Make_Status(int STATUS, String FUNC_NAME) {
+        log.info(FUNC_NAME + " will be set to " + STATUS);
+        amlStatusMapper.UpdateFuncStatus(STATUS, FUNC_NAME);
     }
 }
 

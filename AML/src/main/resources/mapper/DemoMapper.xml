@@ -6,7 +6,7 @@
     <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
-<delete id="d1">
+    <delete id="d1">
 
-</delete>
+    </delete>
 </mapper>

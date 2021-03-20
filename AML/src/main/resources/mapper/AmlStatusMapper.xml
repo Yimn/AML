@@ -3,13 +3,13 @@
 <mapper namespace="com.yimnlu.AML.dao.AmlStatusMapper">
 
     <!-- 开启二级缓存 -->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yimnlu.AML.entity.AmlStatus">
-        <result column="ID" property="id" />
-        <result column="FUNC_NAME" property="funcName" />
-        <result column="STATUS" property="status" />
+        <result column="ID" property="id"/>
+        <result column="FUNC_NAME" property="funcName"/>
+        <result column="STATUS" property="status"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -18,20 +18,22 @@
     </sql>
 
     <update id="InitStatus">
-        UPDATE AML_STATUS SET STATUS = 0
+        UPDATE AML_STATUS
+        SET STATUS = 0
     </update>
 
     <select id="ReachStatus" resultMap="BaseResultMap">
         select *
         from AML_STATUS
-        WHERE 1=1
-        AND FUNC_NAME = #{FUNC_NAME}
+        WHERE 1 = 1
+          AND FUNC_NAME = #{FUNC_NAME}
     </select>
 
     <select id="ReachAllStatus" resultMap="BaseResultMap">
         select *
         from AML_STATUS
-        WHERE 1=1 AND STATUS = 1
+        WHERE 1 = 1
+          AND STATUS = 1
     </select>
 
     <update id="UpdateFuncStatus">

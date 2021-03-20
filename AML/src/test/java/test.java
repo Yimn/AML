@@ -15,8 +15,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.yimnlu.AML.executor.DICT.DEFAULT_DEPART_ID;
-
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CoreApplication.class)
@@ -31,16 +29,6 @@ public class test {
     AmlStatusMapper amlStatusMapper;
 
     @Test
-    public void Batch() {
-        Date a = new Date(119,8,1);
-        Date b = new Date(119,9,1);
-        Date c = new Date(119,10,1);
-        dayReport(a);
-        dayReport(b);
-        dayReport(c);
-        amlStatusController.Init_Status();
-    }
-    @Test
     public static int getDaysByYearMonth(int year, int month) {
 
         Calendar a = Calendar.getInstance();
@@ -51,6 +39,18 @@ public class test {
         int maxDate = a.get(Calendar.DATE);
         return maxDate;
     }
+
+    @Test
+    public void Batch() {
+        Date a = new Date(119, 8, 1);
+        Date b = new Date(119, 9, 1);
+        Date c = new Date(119, 10, 1);
+        dayReport(a);
+        dayReport(b);
+        dayReport(c);
+        amlStatusController.Init_Status();
+    }
+
     @Test
     public void dayReport(Date month) {
         Calendar cal = Calendar.getInstance();

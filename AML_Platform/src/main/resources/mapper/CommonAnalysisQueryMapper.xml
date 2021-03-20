@@ -131,13 +131,13 @@
         REPAY_NO_TYPE, REPAY_NO
         , NO_COUNTER_TYPE, NO_COUNTER_NO, BANK_PAYINS_CODE
         from aml_datasource
-                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+        inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
         where
         <if test='TRADE_COUNTRY != "" and TRADE_COUNTRY != null'>
-              aml_datasource.TRADE_COUNTRY = #{TRADE_COUNTRY} AND
+            aml_datasource.TRADE_COUNTRY = #{TRADE_COUNTRY} AND
         </if>
         <if test='WORK_DATE != "" and WORK_DATE != null'>
-              AML_DATASOURCE.WORK_DATE like #{WORK_DATE}
+            AML_DATASOURCE.WORK_DATE like #{WORK_DATE}
         </if>
         order by aml_datasource.WORK_DATE ASC
     </select>
