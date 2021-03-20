@@ -2,11 +2,14 @@ package com.yimnlu.AML.controller;
 
 import com.yimnlu.AML.dao.GraphComputingMapper;
 import com.yimnlu.AML.dto.ACCTBaseDetail;
+import com.yimnlu.AML.entity.AmlDTA;
 import com.yimnlu.Graph.Graph;
 import com.yimnlu.Graph.Graph4AML;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.json.JSON;
+import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -98,6 +101,23 @@ public class GraphComputing {
     @GetMapping("/returnHashMap")
     public Map returnHashMap(){
         return mapLength;
+    }
+
+    @ApiOperation(value = "show", notes = "show")
+    @GetMapping("/returnMaxLength")
+    public int returnMaxLength(){
+        return mapLength.size();
+    }
+
+    @ApiOperation(value = "show", notes = "show")
+    @GetMapping("/returnMap")
+    public List<ACCTBaseDetail> returnMap(Integer integer){
+        return mapLength.get(integer);
+    }
+    @ApiOperation(value = "show", notes = "show")
+    @GetMapping("/QueryByACCTID")
+    public List<AmlDTA> QueryByACCTID(String s){
+        return graphComputingMapper.QueryByAcctID(s);
     }
 
 }
