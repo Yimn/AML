@@ -66,16 +66,15 @@ public class GraphComputing {
         list = graphComputingMapper.d1();
 
         for (ACCTBaseDetail acctBaseDetail : list) {
-            graph.addEdge(acctBaseDetail.getACCT_ID(), acctBaseDetail.getCTPY_ACCT_ID(), true);
-
+            graph.addEdge(acctBaseDetail.getACCT_ID(), acctBaseDetail.getCTPY_ACCT_ID(), false);
         }
 
         log.info("Analysing Suspect Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         CalGraph(list, 0, 0);
-        log.info("Analysing All Data Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        List<ACCTBaseDetail> list1 = graphComputingMapper.d2();
-        CalGraph(list1, 0, 0);
-        log.info("---------------------------------------------------------------------");
+//        log.info("Analysing All Data Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//        List<ACCTBaseDetail> list1 = graphComputingMapper.d2();
+//        CalGraph(list1, 0, 0);
+//        log.info("---------------------------------------------------------------------");
 
         // print the graph.
         System.out.println("Graph:\n"
