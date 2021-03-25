@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -103,6 +105,52 @@ public class VisualController {
         dayReport(c,arrayList);
         dayReport(d,arrayList);
         dayReport(e,arrayList);
+        return arrayList;
+    }
+    @ApiOperation(value = "visualAmountDetail", notes = "visualAmountDetail")
+    @GetMapping("/visualAmountDetail")
+    public ArrayList visualAmountDetail() throws ParseException {
+        ArrayList<ArrayList> arrayList =new ArrayList();
+        List<AmlDTA> list = new ArrayList<>();
+        Calendar dayc1 = new GregorianCalendar();
+        Calendar dayc2 = new GregorianCalendar();
+        DateFormat df = new SimpleDateFormat("yy-MM-dd");
+        Date daystart = df.parse("19-1-1"); //按照yyyy-MM-dd格式转换为日期
+        Date dayend = df.parse("20-1-1");
+        dayc1.setTime(daystart); //设置calendar的日期
+        dayc2.setTime(dayend);
+
+        for (; dayc1.compareTo(dayc2) <= 0;) {   //dayc1在dayc2之前就循环
+            ArrayList temp = new ArrayList<>();
+            String day = "";
+            if (Integer.valueOf(dayc1.get(Calendar.MONTH))<10){
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))<10) {
+                    day = String.valueOf(dayc1.get(Calendar.YEAR))+"0" + String.valueOf(dayc1.get(Calendar.MONTH))+"0"  + String.valueOf(dayc1.get(Calendar.DATE));
+                }
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))>9) {
+                    day = String.valueOf(dayc1.get(Calendar.YEAR))+"0" + String.valueOf(dayc1.get(Calendar.MONTH))+ String.valueOf(dayc1.get(Calendar.DATE));
+                }
+            }
+            if (Integer.valueOf(dayc1.get(Calendar.MONTH))>9){
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))<10) {
+                    day = String.valueOf(dayc1.get(Calendar.YEAR)) + String.valueOf(dayc1.get(Calendar.MONTH))+"0" + String.valueOf(dayc1.get(Calendar.DATE));
+                }
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))>9) {
+                    day = String.valueOf(dayc1.get(Calendar.YEAR)) + String.valueOf(dayc1.get(Calendar.MONTH)) + String.valueOf(dayc1.get(Calendar.DATE));
+                }
+            }
+            if (day.length()>0){
+                list = presentationMapper.visualAmount(day);
+                log.info("Ready to query visualAmountDetail "+ day +"  "+list);
+                if (list.size()>0){
+                    temp.add(day);
+                    temp.add(list.size());
+                    arrayList.add(temp);
+                }
+            }
+            dayc1.add(Calendar.DAY_OF_YEAR, 1);  //加1天
+        }
+
         return arrayList;
     }
     @ApiOperation(value = "visualAmountYear", notes = "visualAmountYear")
