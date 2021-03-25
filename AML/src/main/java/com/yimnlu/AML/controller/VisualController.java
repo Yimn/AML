@@ -1,7 +1,9 @@
 package com.yimnlu.AML.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yimnlu.AML.dao.presentationMapper;
 import com.yimnlu.AML.entity.AML_Dict;
+import com.yimnlu.AML.entity.AmlStatus;
 import com.yimnlu.AML.model.visualByRule;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static com.yimnlu.AML.executor.DICT.DEFAULT_DEPART_ID;
+import static com.yimnlu.AML.executor.staticReturn.TimeUtils.getDaysByYearMonth;
 
 @RestController
 @CrossOrigin
@@ -83,4 +87,38 @@ public class VisualController {
         }
         return arrayList;
     }
+
+    @ApiOperation(value = "t", notes = "t")
+    @GetMapping("/t")
+    public Object t(){
+        ArrayList arrayList = new ArrayList();
+        ArrayList date = new ArrayList();
+        ArrayList value = new ArrayList();
+        JSONObject object = new JSONObject();
+        Date a = new Date(119, 8, 1);
+        Date b = new Date(119, 9, 1);
+        Date c = new Date(119, 10, 1);
+        dayReport(a,object);
+        dayReport(b,object);
+        dayReport(c,object);
+        return object;
+    }
+
+    public void dayReport(Date month,JSONObject object) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(month);//month 为指定月份任意日期
+        int year = cal.get(Calendar.YEAR);
+        int m = cal.get(Calendar.MONTH);
+        int dayNumOfMonth = getDaysByYearMonth(year, m);
+        cal.set(Calendar.DAY_OF_MONTH, 1);// 从一号开始
+
+        for (int i = 0; i < dayNumOfMonth; i++, cal.add(Calendar.DATE, 1)) {
+            Date d = cal.getTime();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+            String df = simpleDateFormat.format(d);
+            object.put(df,1);
+        }
+    }
+
+
 }
