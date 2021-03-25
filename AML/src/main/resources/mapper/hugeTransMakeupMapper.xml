@@ -10,27 +10,27 @@
         <result column="ERR_MSG" property="ERR_MSG"/>
     </resultMap>
 
-    <select id="rule_0901" resultMap="ERR_CODE_SET">
+    <select id="rule_0501" resultMap="ERR_CODE_SET">
         DECLARE @ERR_CODE NUMERIC,@ERR_MSG VARCHAR(200)
-        EXEC SP_HUGETRANS_0901 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        EXEC SP_HUGETRANS_0501 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
         SELECT @ERR_CODE, @ERR_MSG
     </select>
 
-    <select id="rule_0902" resultMap="ERR_CODE_SET">
+    <select id="rule_0502" resultMap="ERR_CODE_SET">
         DECLARE @ERR_CODE NUMERIC,@ERR_MSG VARCHAR(200)
-        EXEC SP_HUGETRANS_0902 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        EXEC SP_HUGETRANS_0502 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
         SELECT @ERR_CODE, @ERR_MSG
     </select>
 
-    <select id="rule_0903" resultMap="ERR_CODE_SET">
+    <select id="rule_0503" resultMap="ERR_CODE_SET">
         DECLARE @ERR_CODE NUMERIC,@ERR_MSG VARCHAR(200)
-        EXEC SP_HUGETRANS_0903 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        EXEC SP_HUGETRANS_0503 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
         SELECT @ERR_CODE, @ERR_MSG
     </select>
 
-    <select id="rule_0904" resultMap="ERR_CODE_SET">
+    <select id="rule_0504" resultMap="ERR_CODE_SET">
         DECLARE @ERR_CODE NUMERIC,@ERR_MSG VARCHAR(200)
-        EXEC SP_HUGETRANS_0904 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
+        EXEC SP_HUGETRANS_0504 #{DEPARTID}, #{WORKDATE}, @ERR_CODE, @ERR_MSG
         SELECT @ERR_CODE, @ERR_MSG
     </select>
 </mapper>

@@ -27,8 +27,8 @@ public class Graph<T> {
         if (!map.containsKey(source))
             addVertex(source);
 
-        if (!map.containsKey(destination))
-            addVertex(destination);
+//        if (!map.containsKey(destination))
+//            addVertex(destination);
         if (!map.get(source).contains(destination))
             map.get(source).add(destination);
         if (bidirectional) {

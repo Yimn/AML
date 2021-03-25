@@ -31,8 +31,8 @@ public class HugeTransMakeupController {
     AmlStatusMapper amlStatusMapper;
 
     @ApiOperation(value = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。", notes = "单笔或者当日累计人民币交易5万元以上或者外币交易等值1万美元以上的现金缴存、现金支取、现金结售汇、现钞兑换、现金汇款、现金票据解付及其他形式的现金收支。")
-    @GetMapping("/rule_0901")
-    public void rule_0901(@RequestParam("DEPARTID") String DEPARTID
+    @GetMapping("/rule_0501")
+    public void rule_0501(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam(value = "WORKDATE") String WORKDATE) {
         try {
             if (WORKDATE.equals(DEFAULT_WORKDATE)) {
@@ -43,7 +43,7 @@ public class HugeTransMakeupController {
                 DEPARTID = DEFAULT_DEPART_ID;
                 log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0901(DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0501(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,8 +51,8 @@ public class HugeTransMakeupController {
     }
 
     @ApiOperation(value = "法人、其他组织和个体工商户银行账户之间单笔或者当日累计人民币200万元以上或者外币等值20万美元以上的款项划转", notes = "法人、其他组织和个体工商户银行账户之间单笔或者当日累计人民币200万元以上或者外币等值20万美元以上的款项划转")
-    @GetMapping("/rule_0902")
-    public void rule_0902(@RequestParam("DEPARTID") String DEPARTID
+    @GetMapping("/rule_0502")
+    public void rule_0502(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
             if (WORKDATE.equals(DEFAULT_WORKDATE)) {
@@ -63,7 +63,7 @@ public class HugeTransMakeupController {
                 DEPARTID = DEFAULT_DEPART_ID;
                 log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0902(DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0502(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,8 +71,8 @@ public class HugeTransMakeupController {
     }
 
     @ApiOperation(value = "规则描述：自然人银行账户之间，以及自然人与法人、其他组织和个体工商户银行账户之间单笔或者当日累计人民币50万元以上或者外币等值10万美元以上的款项划转", notes = "规则描述：自然人银行账户之间，以及自然人与法人、其他组织和个体工商户银行账户之间单笔或者当日累计人民币50万元以上或者外币等值10万美元以上的款项划转")
-    @GetMapping("/rule_0903")
-    public void rule_0903(@RequestParam("DEPARTID") String DEPARTID
+    @GetMapping("/rule_0503")
+    public void rule_0503(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
             if (WORKDATE.equals(DEFAULT_WORKDATE)) {
@@ -83,7 +83,7 @@ public class HugeTransMakeupController {
                 DEPARTID = DEFAULT_DEPART_ID;
                 log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0903(DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0503(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,8 +91,8 @@ public class HugeTransMakeupController {
     }
 
     @ApiOperation(value = "交易一方为自然人、单笔或者当日累计等值1万美元以上的跨境交易", notes = "交易一方为自然人、单笔或者当日累计等值1万美元以上的跨境交易")
-    @GetMapping("/rule_0904")
-    public void rule_0904(@RequestParam("DEPARTID") String DEPARTID
+    @GetMapping("/rule_0504")
+    public void rule_0504(@RequestParam("DEPARTID") String DEPARTID
             , @RequestParam("WORKDATE") String WORKDATE) {
         try {
             if (WORKDATE.equals(DEFAULT_WORKDATE)) {
@@ -103,7 +103,7 @@ public class HugeTransMakeupController {
                 DEPARTID = DEFAULT_DEPART_ID;
                 log.info(DEFAULT_DUPLICATE_DEPART_ID);
             }
-            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0904(DEPARTID, WORKDATE);
+            List<ERR_CODE_SET> err_code_sets = hugeTransMakeupmapper.rule_0504(DEPARTID, WORKDATE);
             log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " Finished");
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,7 +116,7 @@ public class HugeTransMakeupController {
     public void Batch_090X(
             @RequestParam(value = "DEPARTID", defaultValue = DEFAULT_DEPART_ID) String DEPARTID
             , @RequestParam(value = "WORKDATE", defaultValue = DEFAULT_WORKDATE) String WORKDATE) {
-        log.info("---------------------Ready to batch rule_0901 to rule_0904---------------------");
+        log.info("---------------------Ready to batch rule_0501 to rule_0504---------------------");
         if (WORKDATE.equals(DEFAULT_WORKDATE)) {
             WORKDATE = TodayWorkDate.WORKDATE();
             log.info(DEFAULT_DUPLICATE_WORKDATE);
@@ -126,14 +126,14 @@ public class HugeTransMakeupController {
             log.info(DEFAULT_DUPLICATE_DEPART_ID);
         }
         log.info("Param: DEPARTID:" + DEPARTID + " WORKDATE:" + WORKDATE);
-        log.info("Executing rule_0901>>>>>>>>>>>>>");
-        rule_0901(DEPARTID, WORKDATE);
-        log.info("Executing rule_0902>>>>>>>>>>>>>");
-        rule_0902(DEPARTID, WORKDATE);
-        log.info("Executing rule_0903>>>>>>>>>>>>>");
-        rule_0903(DEPARTID, WORKDATE);
-        log.info("Executing rule_0904>>>>>>>>>>>>>");
-        rule_0904(DEPARTID, WORKDATE);
+        log.info("Executing rule_0501>>>>>>>>>>>>>");
+        rule_0501(DEPARTID, WORKDATE);
+        log.info("Executing rule_0502>>>>>>>>>>>>>");
+        rule_0502(DEPARTID, WORKDATE);
+        log.info("Executing rule_0503>>>>>>>>>>>>>");
+        rule_0503(DEPARTID, WORKDATE);
+        log.info("Executing rule_0504>>>>>>>>>>>>>");
+        rule_0504(DEPARTID, WORKDATE);
         log.info("---------------------------------Batch finished-------------------------------");
     }
 

@@ -9,11 +9,11 @@ import java.util.List;
 
 @Mapper
 public interface hugeTransMakeupMapper extends BaseMapper {
-    List<ERR_CODE_SET> rule_0901(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
+    List<ERR_CODE_SET> rule_0501(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
 
-    List<ERR_CODE_SET> rule_0902(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
+    List<ERR_CODE_SET> rule_0502(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
 
-    List<ERR_CODE_SET> rule_0903(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
+    List<ERR_CODE_SET> rule_0503(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
 
-    List<ERR_CODE_SET> rule_0904(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
+    List<ERR_CODE_SET> rule_0504(@Param("DEPARTID") String DEPARTID, @Param("WORKDATE") String WORKDATE);
 }
