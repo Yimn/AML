@@ -476,9 +476,37 @@ public class SuspectTransMakeupController {
                 Date a = new Date(119, 8, 1);
                 Date b = new Date(119, 9, 1);
                 Date c = new Date(119, 10, 1);
+                Date d = new Date(119, 11, 1);
+                Date e = new Date(119, 12, 1);
+                Date f = new Date(120, 1, 1);
+                Date g = new Date(120, 2, 1);
+                Date h = new Date(120, 3, 1);
+                Date i = new Date(120, 4, 1);
+                Date j = new Date(120,5 , 1);
+                Date k = new Date(120, 6, 1);
+                Date l = new Date(120, 7, 1);
+                Date m = new Date(120, 8, 1);
+                Date n = new Date(120, 9, 1);
+                Date o = new Date(120, 10, 1);
+                Date p = new Date(120, 11, 1);
+                Date q = new Date(120, 11, 1);
                 dayReport(a);
                 dayReport(b);
                 dayReport(c);
+                dayReport(d);
+                dayReport(e);
+                dayReport(f);
+                dayReport(g);
+                dayReport(h);
+                dayReport(i);
+                dayReport(j);
+                dayReport(k);
+                dayReport(l);
+                dayReport(m);
+                dayReport(n);
+                dayReport(o);
+                dayReport(p);
+                dayReport(q);
                 amlStatusMapper.UpdateFuncStatus(0, "SuspectTransMakeup_Batch");
             }
         } catch (Exception e) {

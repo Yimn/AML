@@ -3,6 +3,7 @@ package com.yimnlu.AML.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.yimnlu.AML.dao.presentationMapper;
 import com.yimnlu.AML.entity.AML_Dict;
+import com.yimnlu.AML.entity.AmlDTA;
 import com.yimnlu.AML.entity.AmlStatus;
 import com.yimnlu.AML.model.visualByRule;
 import io.swagger.annotations.Api;
@@ -67,7 +68,7 @@ public class VisualController {
         HashMap<String,String> map = TbAnalysisrulesController._After_Analysis_Rules_;
         ArrayList<visualByRule> arrayList = new ArrayList<>();
         for (String key: map.keySet()){
-            List<AML_Dict> list = presentationMapper.visualByRule(key);
+            List<AmlDTA> list = presentationMapper.visualByRule(key);
             if (!list.isEmpty())
                 //arrayList.add(new visualByRule(list.size(),key,map.get(key)));
                 arrayList.add(new visualByRule(list.size(),map.get(key),key));
@@ -80,7 +81,7 @@ public class VisualController {
         HashMap<String,String> map = TbAnalysisrulesController._After_Analysis_Rules_;
         ArrayList<visualByRule> arrayList = new ArrayList<>();
         for (String key: map.keySet()){
-            List<AML_Dict> list = presentationMapper.visualByRuleBw8_12(key);
+            List<AmlDTA> list = presentationMapper.visualByRuleBw8_12(key);
             if (!list.isEmpty())
                 //arrayList.add(new visualByRule(list.size(),key,map.get(key)));
                 arrayList.add(new visualByRule(list.size(),map.get(key),key));
@@ -88,23 +89,25 @@ public class VisualController {
         return arrayList;
     }
 
-    @ApiOperation(value = "t", notes = "t")
-    @GetMapping("/t")
-    public Object t(){
-        ArrayList arrayList = new ArrayList();
-        ArrayList date = new ArrayList();
-        ArrayList value = new ArrayList();
-        JSONObject object = new JSONObject();
-        Date a = new Date(119, 8, 1);
-        Date b = new Date(119, 9, 1);
-        Date c = new Date(119, 10, 1);
-        dayReport(a,object);
-        dayReport(b,object);
-        dayReport(c,object);
-        return object;
+    @ApiOperation(value = "visualAmount", notes = "visualAmount")
+    @GetMapping("/visualAmount")
+    public ArrayList visualAmount(){
+        Date a = new Date(119, 7, 1);
+        Date b = new Date(119, 8, 1);
+        Date c = new Date(119, 9, 1);
+        Date d = new Date(119, 10, 1);
+        Date e = new Date(119, 11, 1);
+        ArrayList<ArrayList> arrayList =new ArrayList();
+        dayReport(a,arrayList);
+        dayReport(b,arrayList);
+        dayReport(c,arrayList);
+        dayReport(d,arrayList);
+        dayReport(e,arrayList);
+        return arrayList;
     }
 
-    public void dayReport(Date month,JSONObject object) {
+
+    public void dayReport(Date month,ArrayList<ArrayList> arrayList) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(month);//month 为指定月份任意日期
         int year = cal.get(Calendar.YEAR);
@@ -115,8 +118,16 @@ public class VisualController {
         for (int i = 0; i < dayNumOfMonth; i++, cal.add(Calendar.DATE, 1)) {
             Date d = cal.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
             String df = simpleDateFormat.format(d);
-            object.put(df,1);
+            String df1 = simpleDateFormat1.format(d);
+            ArrayList temp = new ArrayList<>();
+            List<AmlDTA> list =presentationMapper.visualAmount(df);
+            if (list.size()>0) {
+                temp.add(df1);
+                temp.add(list.size());
+                arrayList.add(temp);
+            }
         }
     }
 
