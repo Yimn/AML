@@ -125,7 +125,7 @@ public class VisualController {
             init = init + i;
             ArrayList temp = new ArrayList<>();
             List<AmlDTA> list = presentationMapper.visualAmountYear(String.valueOf(init));
-            if (list.size()>50){
+            if (list.size()>0){
                 temp.add(String.valueOf(init));
                 temp.add(list.size());
                 arrayList.add(temp);
