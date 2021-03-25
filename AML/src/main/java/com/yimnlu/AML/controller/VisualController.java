@@ -105,7 +105,34 @@ public class VisualController {
         dayReport(e,arrayList);
         return arrayList;
     }
-
+    @ApiOperation(value = "visualAmountYear", notes = "visualAmountYear")
+    @GetMapping("/visualAmountYear")
+    public ArrayList visualAmountA(){
+        ArrayList<ArrayList> arrayList =new ArrayList();
+        int init = 201801;
+        for (int i =0; i<12;i++){
+            init = init + i;
+            ArrayList temp = new ArrayList<>();
+            List<AmlDTA> list = presentationMapper.visualAmountYear(String.valueOf(init));
+            if (list.size()>0){
+                temp.add(String.valueOf(init));
+                temp.add(list.size());
+                arrayList.add(temp);
+            }
+        }
+        init = 201901;
+        for (int i =0; i<12;i++){
+            init = init + i;
+            ArrayList temp = new ArrayList<>();
+            List<AmlDTA> list = presentationMapper.visualAmountYear(String.valueOf(init));
+            if (list.size()>50){
+                temp.add(String.valueOf(init));
+                temp.add(list.size());
+                arrayList.add(temp);
+            }
+        }
+        return arrayList;
+    }
 
     public void dayReport(Date month,ArrayList<ArrayList> arrayList) {
         Calendar cal = Calendar.getInstance();

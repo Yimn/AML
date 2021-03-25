@@ -15,5 +15,6 @@ public interface presentationMapper extends BaseMapper {
     List<AmlDTA> visualByRuleBw8_12(String rule);
     List<AmlDTA> visualByRule(String rule);
     List<AmlDTA> visualAmount(String WORK_DATE);
+    List<AmlDTA> visualAmountYear(String WORK_DATE);
 
 }
