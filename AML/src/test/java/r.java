@@ -1,29 +1,31 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class r {
-    public static void main(String[] args) {
-        ArrayList<String> dimensions = new ArrayList<>();
-        ArrayList<ArrayList> source = new ArrayList<>();
-        ArrayList sourceData = new ArrayList<>();
+    public static void main(String[] args) throws ParseException {
 
-        HashMap<ArrayList<String>, ArrayList<ArrayList>> hashMap = new HashMap<>();
-        ArrayList<String> arrayList = new ArrayList();
-        dimensions.add("name");
-        dimensions.add("age");
-        dimensions.add("profession");
-        dimensions.add("date");
-        sourceData.add("Krause");
-        sourceData.add(41);
-        sourceData.add("Engineer");
-        sourceData.add(314);
-        sourceData.add("2011-02-12");
-        source.add(sourceData);
-        hashMap.put(dimensions,source);
+            ArrayList<ArrayList> arrayList =new ArrayList();
+            Calendar dayc1 = new GregorianCalendar();
+            Calendar dayc2 = new GregorianCalendar();
+            DateFormat df = new SimpleDateFormat("yy-MM-dd");
+            Date daystart = df.parse("19-1-1"); //按照yyyy-MM-dd格式转换为日期
+            Date dayend = df.parse("19-12-31");
+            dayc1.setTime(daystart); //设置calendar的日期
+            dayc2.setTime(dayend);
 
-        ArrayList[][] data = new ArrayList[1][2];
-        data[0][0] = dimensions;
-        data[0][1] = source;
-        System.out.println(data);
+            for (; dayc1.compareTo(dayc2) <= 0;) {   //dayc1在dayc2之前就循环
+//                System.out.println("PARTITION p" +
+//                        dayc1.get(Calendar.YEAR) + dayc1.get(Calendar.MONTH) + dayc1.get(Calendar.DATE) + " VALUES LESS THAN (TO_DAYS('"
+//                        + dayc1.get(Calendar.YEAR) + "-" + dayc1.get(Calendar.MONTH) + "-" + dayc1.get(Calendar.DATE) + "')),");  //打印年月日
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))>9)
+                    System.out.println(dayc1.get(Calendar.YEAR)+"" + dayc1.get(Calendar.MONTH) + ""+dayc1.get(Calendar.DATE));
+                if (Integer.valueOf(dayc1.get(Calendar.DATE))<9)
+                    System.out.println(dayc1.get(Calendar.YEAR)+"" + dayc1.get(Calendar.MONTH) +"0"+ dayc1.get(Calendar.DATE));
+                dayc1.add(Calendar.DAY_OF_YEAR, 1);  //加1天
+            }
+
+
     }
 }

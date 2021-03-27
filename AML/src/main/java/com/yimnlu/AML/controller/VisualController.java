@@ -115,7 +115,7 @@ public class VisualController {
         Calendar dayc1 = new GregorianCalendar();
         Calendar dayc2 = new GregorianCalendar();
         DateFormat df = new SimpleDateFormat("yy-MM-dd");
-        Date daystart = df.parse("19-1-1"); //按照yyyy-MM-dd格式转换为日期
+        Date daystart = df.parse("17-1-1"); //按照yyyy-MM-dd格式转换为日期
         Date dayend = df.parse("20-1-1");
         dayc1.setTime(daystart); //设置calendar的日期
         dayc2.setTime(dayend);
@@ -157,18 +157,16 @@ public class VisualController {
     @GetMapping("/visualAmountYear")
     public ArrayList visualAmountA(){
         ArrayList<ArrayList> arrayList =new ArrayList();
-        int init = 201801;
-        for (int i =0; i<12;i++){
-            init = init + i;
-            ArrayList temp = new ArrayList<>();
-            List<AmlDTA> list = presentationMapper.visualAmountYear(String.valueOf(init));
-            if (list.size()>0){
-                temp.add(String.valueOf(init));
-                temp.add(list.size());
-                arrayList.add(temp);
-            }
-        }
+        int init = 201701;
+        AmountYearPre(arrayList, init);
+        init = 201801;
+        AmountYearPre(arrayList, init);
         init = 201901;
+        AmountYearPre(arrayList, init);
+        return arrayList;
+    }
+
+    private void AmountYearPre(ArrayList<ArrayList> arrayList, int init) {
         for (int i =0; i<12;i++){
             init = init + i;
             ArrayList temp = new ArrayList<>();
@@ -179,7 +177,6 @@ public class VisualController {
                 arrayList.add(temp);
             }
         }
-        return arrayList;
     }
 
     public void dayReport(Date month,ArrayList<ArrayList> arrayList) {

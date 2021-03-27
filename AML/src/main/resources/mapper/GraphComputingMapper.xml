@@ -18,6 +18,12 @@
         select DISTINCT AML_DATASOURCE.ACCT_ID, AML_DATASOURCE.CTPY_ACCT_ID
         from aml_datasource
     </select>
+    <select id="d3" resultMap="BaseDetail">
+        select DISTINCT AML_DATASOURCE.ACCT_ID, AML_DATASOURCE.CTPY_ACCT_ID
+        from aml_datasource
+                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+where AML_DATASOURCE.WORK_DATE = #{WORK_DATE}
+    </select>
     <select id="QueryByAcctID" resultMap="DTA">
         select distinct aml_datasource.WORK_DATE
                       , aml_datasource.REF_NO
