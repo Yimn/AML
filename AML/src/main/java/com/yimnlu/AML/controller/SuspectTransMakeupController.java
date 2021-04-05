@@ -482,7 +482,7 @@ public class SuspectTransMakeupController {
                 Date g = new Date(120, 2, 1);
                 Date h = new Date(120, 3, 1);
                 Date i = new Date(120, 4, 1);
-                Date j = new Date(120,5 , 1);
+                Date j = new Date(120, 5, 1);
                 Date k = new Date(120, 6, 1);
                 Date l = new Date(120, 7, 1);
                 Date m = new Date(120, 8, 1);

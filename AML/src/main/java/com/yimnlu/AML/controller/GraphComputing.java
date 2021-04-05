@@ -30,22 +30,22 @@ public class GraphComputing {
     @Resource
     GraphComputingMapper graphComputingMapper;
 
-    void CalGraph(Map<Integer, List<ACCTBaseDetail>> source,List<ACCTBaseDetail> list, int index, int length) {
+    void CalGraph(Map<Integer, List<ACCTBaseDetail>> source, List<ACCTBaseDetail> list, int index, int length) {
         for (int i = index; i < list.size(); i++) {
             ACCTBaseDetail origin = list.get(i);
             System.out.print("head ");
             System.out.print(list.get(index).getACCT_ID() + " -> " + list.get(index).getCTPY_ACCT_ID());
-            CalGraph_Deep(source,list, list.get(index).getCTPY_ACCT_ID(), ++index, 1, origin);
+            CalGraph_Deep(source, list, list.get(index).getCTPY_ACCT_ID(), ++index, 1, origin);
             System.out.println();
         }
     }
 
-    void CalGraph_Deep(Map<Integer, List<ACCTBaseDetail>> source,List<ACCTBaseDetail> list, String target, int index, int length, ACCTBaseDetail origin) {
+    void CalGraph_Deep(Map<Integer, List<ACCTBaseDetail>> source, List<ACCTBaseDetail> list, String target, int index, int length, ACCTBaseDetail origin) {
         length++;
         for (int i = index; i < list.size(); i++) {
             if (target.equals(list.get(index).getACCT_ID())) {
                 System.out.print(" -> " + list.get(index).getACCT_ID() + " -> " + list.get(index).getCTPY_ACCT_ID());
-                CalGraph_Deep(source,list, list.get(index).getCTPY_ACCT_ID(), ++i, length, origin);
+                CalGraph_Deep(source, list, list.get(index).getCTPY_ACCT_ID(), ++i, length, origin);
             }
         }
         if (length > 1) {
@@ -70,7 +70,7 @@ public class GraphComputing {
         }
 
         log.info("Analysing Suspect Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        CalGraph(mapLength,list, 0, 0);
+        CalGraph(mapLength, list, 0, 0);
 //        log.info("Analysing All Data Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 //        List<ACCTBaseDetail> list1 = graphComputingMapper.d2();
 //        CalGraph(list1, 0, 0);
@@ -109,9 +109,16 @@ public class GraphComputing {
     @ApiOperation(value = "show", notes = "show")
     @GetMapping("/returnMap")
     public List<ACCTBaseDetail> returnMap(Integer integer, String workdate) {
-        if (integer == null)
+        if (integer == null) {
+            log.info("integer is null");
             integer = 2;
-        if (workdate != null) {
+        }
+        if (workdate == null)
+            log.info("workdate is null");
+        if (workdate.length() < 8)
+            log.info("workdate is null");
+
+        if (workdate.length() == 8) {
             Map<Integer, List<ACCTBaseDetail>> map = new HashMap<>();
             List<ACCTBaseDetail> temp = graphComputingMapper.d3(workdate);
             Graph<String> graph = new Graph();
@@ -120,7 +127,7 @@ public class GraphComputing {
             }
 
             log.info("Analysing Suspect Graph Datasource>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            CalGraph(map,temp, 0, 0);
+            CalGraph(map, temp, 0, 0);
             log.info(map.toString());
             return map.get(integer);
         } else

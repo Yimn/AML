@@ -240,7 +240,8 @@
     </resultMap>
 
     <select id="visualByRuleBw8_12" resultMap="DTA">
-        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO , aml_datasource.DEPART_ID
+        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO ,
+        aml_datasource.DEPART_ID
         , SEQ_NO, DEPART_NAME, DEPART_TYPE, DEPART_AREACODE, CLIENT_ID, RULE_CODE, RULE_TYPE, UNIT_NAME, UNIT_CODE
         , RELATION_TYPE, REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE
         , ORIG_CLIENT_ID, ORIG_TRADE_DATE, ORIG_RULE_CODE, PCODE, CLIENT_NAME, CLIENT_TYPE, CLIENT_IC_TYPE,
@@ -265,14 +266,15 @@
             and AML_ANALYSISRESULT.RULE_CODE = #{rule}
         </if>
         where AML_DATASOURCE.WORK_DATE like '201908%'
-           or AML_DATASOURCE.WORK_DATE like '201909%'
-           or AML_DATASOURCE.WORK_DATE like '201910%'
-           or AML_DATASOURCE.WORK_DATE like '201911%'
-           or AML_DATASOURCE.WORK_DATE like '201912%'
+        or AML_DATASOURCE.WORK_DATE like '201909%'
+        or AML_DATASOURCE.WORK_DATE like '201910%'
+        or AML_DATASOURCE.WORK_DATE like '201911%'
+        or AML_DATASOURCE.WORK_DATE like '201912%'
         order by aml_datasource.WORK_DATE DESC
     </select>
     <select id="visualByRule" resultMap="DTA">
-        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO , aml_datasource.DEPART_ID
+        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO ,
+        aml_datasource.DEPART_ID
         , SEQ_NO, DEPART_NAME, DEPART_TYPE, DEPART_AREACODE, CLIENT_ID, RULE_CODE, RULE_TYPE, UNIT_NAME, UNIT_CODE
         , RELATION_TYPE, REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE
         , ORIG_CLIENT_ID, ORIG_TRADE_DATE, ORIG_RULE_CODE, PCODE, CLIENT_NAME, CLIENT_TYPE, CLIENT_IC_TYPE,
@@ -299,7 +301,8 @@
         order by aml_datasource.WORK_DATE DESC
     </select>
     <select id="visualAmount" resultMap="DTA">
-        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO , aml_datasource.DEPART_ID
+        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO ,
+        aml_datasource.DEPART_ID
         , SEQ_NO, DEPART_NAME, DEPART_TYPE, DEPART_AREACODE, CLIENT_ID, RULE_CODE, RULE_TYPE, UNIT_NAME, UNIT_CODE
         , RELATION_TYPE, REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE
         , ORIG_CLIENT_ID, ORIG_TRADE_DATE, ORIG_RULE_CODE, PCODE, CLIENT_NAME, CLIENT_TYPE, CLIENT_IC_TYPE,
@@ -326,7 +329,8 @@
         order by aml_datasource.WORK_DATE DESC
     </select>
     <select id="visualAmountYear" resultMap="DTA">
-        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO , aml_datasource.DEPART_ID
+        select distinct aml_datasource.WORK_DATE , aml_datasource.REF_NO , aml_datasource.ORIG_REF_NO ,
+        aml_datasource.DEPART_ID
         , SEQ_NO, DEPART_NAME, DEPART_TYPE, DEPART_AREACODE, CLIENT_ID, RULE_CODE, RULE_TYPE, UNIT_NAME, UNIT_CODE
         , RELATION_TYPE, REPORT_DATE, SHADINESS_LEVEL, SHADINESS_DESC, ACTION_MEASURE, ORIG_BATCH_NO, ORIG_WORK_DATE
         , ORIG_CLIENT_ID, ORIG_TRADE_DATE, ORIG_RULE_CODE, PCODE, CLIENT_NAME, CLIENT_TYPE, CLIENT_IC_TYPE,
@@ -351,5 +355,26 @@
             and AML_ANALYSISRESULT.WORK_DATE like #{WORK_DATE} + '%'
         </if>
         order by aml_datasource.WORK_DATE DESC
+    </select>
+
+
+    <select id="index_Overview_Pie_Suspect" resultType="java.lang.Integer">
+        select count(*)
+        from aml_datasource
+                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+        where 1 = 1
+    </select>
+
+    <select id="index_Overview_Pie_All" resultType="java.lang.Integer">
+        select count(*)
+        from aml_datasource
+        where 1 = 1
+    </select>
+
+    <select id="index_Count_Month" resultType="java.lang.Integer">
+        select count(*)
+        from aml_datasource
+                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+where AML_DATASOURCE.WORK_DATE like #{WORK_DATE}
     </select>
 </mapper>

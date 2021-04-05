@@ -11,7 +11,6 @@ import com.yimnlu.AML_Platform.service.GeneralQueryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.event.service.internal.EventListenerServiceInitiator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -74,7 +73,7 @@ public class GeneralQuery {
         if (DEPARTID.equals(DEFAULT_WORKDATE))
             DEPARTID = DEFAULT_DEPART_ID;
         log.info("SuspectListQuery->  " + WORKDATE + "  " + DEPARTID + "" + REFNO);
-        List<AmlDTA> list =generalQueryService.DTAQuery(WORKDATE, DEPARTID, REFNO);
+        List<AmlDTA> list = generalQueryService.DTAQuery(WORKDATE, DEPARTID, REFNO);
         log.info(list.toString());
         return list;
     }
