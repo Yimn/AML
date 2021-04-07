@@ -21,6 +21,8 @@ public interface presentationMapper extends BaseMapper {
     List<AmlDTA> visualAmountYear(String WORK_DATE);
 
     Integer index_Overview_Pie_Suspect();
+
     Integer index_Overview_Pie_All();
+
     Integer index_Count_Month(String Work_Date);
 }

@@ -12,10 +12,11 @@ import javax.annotation.Resource;
 public class DepthServiceImpl extends ServiceImpl<DepthMapper, SuspectDimensions> implements DepthService {
     @Resource
     DepthMapper depthMapper;
+
     @Override
     public SuspectDimensions suspectDimensionsQueryByACCT(String ACCT) {
-        return new SuspectDimensions(ACCT,depthMapper.QueryCount(ACCT,"STR0003",null),depthMapper.QueryCount(ACCT,"STR0001","STR0002"),
-                depthMapper.QueryCount(ACCT,"1101",null),depthMapper.QueryCount(ACCT,"0502",null),
-                depthMapper.QueryCount(ACCT,"0006",null));
+        return new SuspectDimensions(ACCT, depthMapper.QueryCount(ACCT, "STR0003", null), depthMapper.QueryCount(ACCT, "STR0001", "STR0002"),
+                depthMapper.QueryCount(ACCT, "1101", null), depthMapper.QueryCount(ACCT, "0502", null),
+                depthMapper.QueryCount(ACCT, "0006", null));
     }
 }

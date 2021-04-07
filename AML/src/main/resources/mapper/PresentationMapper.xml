@@ -375,6 +375,6 @@
         select count(*)
         from aml_datasource
                  inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
-where AML_DATASOURCE.WORK_DATE like #{WORK_DATE}
+        where AML_DATASOURCE.WORK_DATE like #{WORK_DATE}
     </select>
 </mapper>

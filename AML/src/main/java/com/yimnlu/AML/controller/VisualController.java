@@ -33,36 +33,37 @@ public class VisualController {
     public JSONObject index_Overview() {
         log.info("Data Processing for index_Overview");
         HashMap<String, String> map = TbAnalysisrulesController._After_Analysis_Rules_;
-       JSONObject BigJson = new JSONObject();
-       JSONObject jsonObject1 = new JSONObject();
-       JSONObject jsonObject2 = new JSONObject();
+        JSONObject BigJson = new JSONObject();
+        JSONObject jsonObject1 = new JSONObject();
+        JSONObject jsonObject2 = new JSONObject();
         int index_Overview_Pie_Suspect = 5000;
         int index_Overview_Pie_Suspect_1 = 2000;
         //int index_Overview_Pie_Suspect = presentationMapper.index_Overview_Pie_Suspect();
 
-        BigJson.fluentPut("charts",returnJSONObject1(jsonObject1,201901));
-        BigJson.fluentPut("components",returnJSONObject1(jsonObject2,201801));
+        BigJson.fluentPut("charts", returnJSONObject1(jsonObject1, 201901));
+        BigJson.fluentPut("components", returnJSONObject1(jsonObject2, 201801));
         int temp = 0;
-        for (String i:jsonObject1.keySet()){
-            if (jsonObject1.getInteger(i)>temp)
+        for (String i : jsonObject1.keySet()) {
+            if (jsonObject1.getInteger(i) > temp)
                 temp = jsonObject1.getInteger(i);
         }
-        BigJson.put("all",temp+1000);
-       return BigJson;
+        BigJson.put("all", temp + 1000);
+        return BigJson;
     }
 
-    public JSONObject returnJSONObject1(JSONObject jsonObject,int current_year_month){
+    public JSONObject returnJSONObject1(JSONObject jsonObject, int current_year_month) {
         int temp = 0;
-        for (int i = 0; i <12;i++){
-            log.info("Processing returnJSONObject1:"+current_year_month);
-            String CYM = current_year_month +"%";
-            int mount =presentationMapper.index_Count_Month(CYM);
+        for (int i = 0; i < 12; i++) {
+            log.info("Processing returnJSONObject1:" + current_year_month);
+            String CYM = current_year_month + "%";
+            int mount = presentationMapper.index_Count_Month(CYM);
             temp = temp + mount;
-            jsonObject.put(String.valueOf(current_year_month),mount);
+            jsonObject.put(String.valueOf(current_year_month), mount);
             current_year_month++;
         }
         return jsonObject;
     }
+
     @ApiOperation(value = "index_PartView", notes = "index_PartView")
     @GetMapping("/index_PartView")
     public JSONObject index_PartView() {
@@ -70,6 +71,7 @@ public class VisualController {
 
         return null;
     }
+
     @ApiOperation(value = "index_Overview_Pie", notes = "index_Overview_Pie")
     @GetMapping("/index_Overview_Pie")
     public JSONObject index_Overview_Pie() {
@@ -79,10 +81,11 @@ public class VisualController {
         ArrayList<String> arrayList = new ArrayList<>();
         ArrayList<Integer> arrayList1 = new ArrayList<>();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("可疑数据",index_Overview_Pie_Suspect);
-        jsonObject.put("正常数据",index_Overview_Pie_All+index_Overview_Pie_Suspect);
+        jsonObject.put("可疑数据", index_Overview_Pie_Suspect);
+        jsonObject.put("正常数据", index_Overview_Pie_All + index_Overview_Pie_Suspect);
         return jsonObject;
     }
+
     @ApiOperation(value = "index_PartView_Pie", notes = "index_PartView_Pie")
     @GetMapping("/index_PartView_Pie")
     public JSONObject index_PartView_Pie() {
@@ -91,7 +94,7 @@ public class VisualController {
         JSONObject jsonObject = new JSONObject();
         for (String key : map.keySet()) {
             List<AmlDTA> list = presentationMapper.visualByRule(key);
-            jsonObject.put(map.get(key),list.size());
+            jsonObject.put(map.get(key), list.size());
         }
         return jsonObject;
     }

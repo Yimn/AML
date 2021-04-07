@@ -19,7 +19,6 @@
     </resultMap>
 
 
-
     <resultMap id="DTA" type="com.yimnlu.AML_Platform.entity.AmlDTA">
         <result column="WORK_DATE" property="workDate"/>
         <result column="REF_NO" property="refNo"/>
@@ -151,10 +150,10 @@
     <select id="QueryCount" resultType="java.lang.Integer">
         select count(*)
         from aml_datasource
-                 inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
+        inner join aml_analysisresult on aml_analysisresult.ref_no = aml_datasource.ref_no
         where 1 = 1
         <if test='RULE_CODE != "" and RULE_CODE != null'>
-        AND AML_ANALYSISRESULT.RULE_CODE = #{RULE_CODE}
+            AND AML_ANALYSISRESULT.RULE_CODE = #{RULE_CODE}
         </if>
         <if test='RULE_CODE2 != "" and RULE_CODE2 != null'>
             OR AML_ANALYSISRESULT.RULE_CODE = #{RULE_CODE2}
@@ -163,7 +162,12 @@
             AND ACCT_ID = #{ACCT_ID}
         </if>
     </select>
-
+    <select id="checkAcct_ID" resultType="java.lang.Integer">
+        select count(DISTINCT ACCT_ID)
+        from aml_datasource
+                 inner join aml_analysisresult
+                            on aml_analysisresult.ref_no = aml_datasource.ref_no and ACCT_ID = #{ACCT_ID}
+    </select>
 
 
 </mapper>

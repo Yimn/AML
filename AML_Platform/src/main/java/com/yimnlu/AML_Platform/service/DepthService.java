@@ -5,5 +5,5 @@ import com.yimnlu.AML_Platform.model.SuspectDimensions;
 
 
 public interface DepthService extends IService<SuspectDimensions> {
-        SuspectDimensions suspectDimensionsQueryByACCT(String ACCT);
+    SuspectDimensions suspectDimensionsQueryByACCT(String ACCT);
 }
