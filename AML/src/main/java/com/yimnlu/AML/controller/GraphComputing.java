@@ -43,18 +43,20 @@ public class GraphComputing {
     void CalGraph_Deep(Map<Integer, List<ACCTBaseDetail>> source, List<ACCTBaseDetail> list, String target, int index, int length, ACCTBaseDetail origin) {
         length++;
         for (int i = index; i < list.size(); i++) {
-            if (target.equals(list.get(index).getACCT_ID())) {
-                System.out.print(" -> " + list.get(index).getACCT_ID() + " -> " + list.get(index).getCTPY_ACCT_ID());
-                CalGraph_Deep(source, list, list.get(index).getCTPY_ACCT_ID(), ++i, length, origin);
+            //log.info(target+"--------------"+list.get(index).getACCT_ID());
+            if (target.equals(list.get(i).getACCT_ID())) {
+                System.out.print(" -> " + list.get(i).getACCT_ID() + " -> " + list.get(i).getCTPY_ACCT_ID());
+                CalGraph_Deep(source, list, list.get(i).getCTPY_ACCT_ID(), ++i, length, origin);
             }
         }
         if (length > 1) {
             if (source.containsKey(length)) {
-                source.get(length).add(origin);
+                if(!source.get(length).get(0).getCTPY_ACCT_ID().equals(origin.getACCT_ID()))
+                    source.get(length).add(origin);
             } else {
                 source.put(length, new LinkedList<>());
+                source.get(length).add(origin);
             }
-            source.get(length).add(origin);
         }
     }
 
