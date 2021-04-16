@@ -63,7 +63,7 @@ public class GeneralQuery {
     @RequestMapping(value = "/SuspectListQuery", method = RequestMethod.GET)
     public List<AmlDTA> SuspectListQuery(ListQuery l1) {
         log.info(l1.toString() + "");
-        String WORKDATE = "";
+        String WORKDATE = l1.getWORKDATE();
         if (l1.getWORKDATE() == null)
             WORKDATE = null;
         else if (WORKDATE.equals(DEFAULT_WORKDATE))
