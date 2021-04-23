@@ -66,7 +66,7 @@ public class AmlStatusController {
     @ApiOperation(value = "Make_Status", notes = "Make_Status")
     @GetMapping("/Make_Status")
     public void Make_Status(int STATUS, String FUNC_NAME) {
-        log.info(FUNC_NAME + " will be set to " + STATUS);
+        log.info(FUNC_NAME + " will be set to " + STATUS +"     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>success");
         amlStatusMapper.UpdateFuncStatus(STATUS, FUNC_NAME);
     }
 }
